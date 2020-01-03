@@ -19,8 +19,7 @@ var usernameValue : String = ""
 var passwordValue : String = ""
 var tokenValue: String = ""
 var companyIDValue: String = ""
-var betaVersionValue: Bool = false
-var listinValue: String = ""
+var listinValue: String! = ""
 var userMenu = [UserMenu]()
 var fullnameValue: String = ""
 var goHomeView: Bool = true
@@ -43,7 +42,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var listinButton: UIBarButtonItem!
     @IBOutlet weak var home: UIButton!
     @IBOutlet weak var webViewView: UIView!
-    
     
     func setSideMenu() {
         menu_vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? SideMenuVC
@@ -113,22 +111,17 @@ class HomeVC: UIViewController {
         webView.sizeToFit()
         webView.contentMode = UIView.ContentMode.scaleAspectFit
         webView.evaluateJavaScript("window.open = function(open) { return function (url, name, features) { window.location.href = url; return window; }; } (window.open);", completionHandler: nil)
-
         webViewView.addSubview(webView)
+        
         if (listinValue == "false") {
             listinButton.image = nil
             listinButton.isEnabled = false
         }
         loadSideMenu()
         var url = "https://admin.dicloud.es/"
-        var title = "Dicloud"
-        if (betaVersionValue) {
-            url = "https://desarrollo.dicloud.es/"
-            title = "Desarrollo"
-        }
         URL_INDEX = url
         url = url + "index.asp"
-        openIndex(url: url, title: title)
+        openIndex(url: url)
         if (URL_MENU != "") {
             loadURLMenu()
             URL_MENU = ""
@@ -136,18 +129,31 @@ class HomeVC: UIViewController {
     }
 
     
+    @IBAction func goHome(_ sender: Any) {
+        goHomeView = true
+        let url = "https://admin.dicloud.es/index.asp"
+        openIndex(url: url)
+    }
+    
+    
     func loadURLMenu() {
         loadWebView(url: URL(string: URL_MENU)!)
     }
     
     func loadSideMenu() {
         let getMenuURL = "https://app.dicloud.es/getMenu.asp"
-        let getMenuParameters = ["password":passwordValue,"aliasDb":nicknameValue,"appSource":"Dicloud","user":usernameValue, "token": tokenValue] as [String : Any]
+        let getMenuParameters = ["password":passwordValue,"aliasDb":nicknameValue,"appSource":"Dicloud","user":usernameValue, "token": tokenValue]
         Alamofire.request(getMenuURL, method: .post, parameters: getMenuParameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
             switch response.result {
             case .success:
                 do {
+                    //print("token=")
+                    //print(passwordValue)
+                    //print(nicknameValue)
+                    //print(usernameValue)
+                    //print(String(describing:  tokenValue))
+                    //print(response)
                     let usermenu = try JSONDecoder().decode(Root.self,from: (response.data)!)
                     userMenu = usermenu.usermenu
                     self.setSideMenu()
@@ -162,24 +168,14 @@ class HomeVC: UIViewController {
         }
     }
     
-    func openIndex(url: String, title: String) {
-        home.setTitle(title, for: .normal)
+    func openIndex(url: String) {
         let url = URL(string: url + "?company=" + nicknameValue
             + "&user=" + usernameValue + "&pass=" + passwordValue + "&token=" + tokenValue + "&l=1")!
         loadWebView(url: url)
     }
     
     @IBAction func openListin(_ sender: Any) {
-        openIndex(url: URL_INDEX + "/listin.asp", title: "Versión beta")
-    }
-    
-    @IBAction func goHome(_ sender: Any) {
-        goHomeView = true
-        if (betaVersionValue) {
-            openIndex(url:"https://desarrollo.dicloud.es/index.asp", title: "Versión beta")
-        } else {
-            openIndex(url:"https://admin.dicloud.es/index.asp", title: "Dicloud")
-        }
+        openIndex(url: URL_INDEX + "/listin.asp")
     }
     
     

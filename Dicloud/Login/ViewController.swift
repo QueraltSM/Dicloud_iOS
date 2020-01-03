@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     let hidePassword = "https://img.icons8.com/ios-glyphs/50/000000/hide.png"
     let showPassword = "https://img.icons8.com/ios-glyphs/50/000000/visible.png"
     var passwordHidden = true
-    @IBOutlet weak var betaVersion: UISwitch!
     
     var token = ""
     var companyID = ""
@@ -61,7 +60,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        betaVersion.onTintColor = UIColor.blue
         nickname.directionMaterial = placeholderDirection.placeholderUp
         username.directionMaterial = placeholderDirection.placeholderUp
         password.directionMaterial = placeholderDirection.placeholderUp
@@ -174,7 +172,6 @@ class ViewController: UIViewController {
                 fullnameValue = fullname
                 passwordValue = password.text!
                 tokenValue = token
-                betaVersionValue = betaVersion.isOn
                 companyIDValue = companyID
                 listinValue = listin
             }
@@ -188,13 +185,12 @@ class ViewController: UIViewController {
         }
         switch errorCode {
         case 0: // success
-            let jsonDictionaryCompact = json.compactMap{$0}
-            listin = String(describing: jsonDictionaryCompact[2].value)
-            fullname = String(describing: jsonDictionaryCompact[5].value)
-            companyID = String(describing: jsonDictionaryCompact[6].value)
-            token = String(describing: jsonDictionaryCompact[7].value)
-                        
-            self.performSegue(withIdentifier: "HomeSegue", sender: token)
+            listin = json["listin"]! as! String
+            fullname = json["fullName"]! as! String
+            companyID = String (describing: json["companyid"])
+            token = json["token"]! as! String
+            print(token)
+            self.performSegue(withIdentifier: "HomeSegue", sender: [token, listin, fullname])
             break
         case 1: // company error
             nickLbl.text = "Alias incorrecto"

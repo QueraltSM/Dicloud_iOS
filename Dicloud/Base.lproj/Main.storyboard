@@ -26,25 +26,13 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem id="Tck-gX-LPh">
-                                        <nil key="title"/>
+                                    <navigationItem title="Dicloud" id="Tck-gX-LPh">
                                         <barButtonItem key="leftBarButtonItem" image="Image" id="8Xu-i2-ikM">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="openMenu:" destination="BYZ-38-t0r" id="ug5-1t-3fO"/>
                                             </connections>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e2N-My-QB0">
-                                            <rect key="frame" x="70" y="4.6666666666666679" width="199" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="20"/>
-                                            <state key="normal">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="goHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q3g-wb-oWG"/>
-                                            </connections>
-                                        </button>
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="refresh" id="gaj-01-rNj">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,6 +44,12 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <action selector="openListin:" destination="BYZ-38-t0r" id="DI5-GT-8ou"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="icons8-home-page-24.png" id="OmR-p7-9Ck">
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="goHome:" destination="BYZ-38-t0r" id="cFu-mN-Kku"/>
                                                 </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -77,7 +71,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="i5c-gW-0E6"/>
                     <connections>
-                        <outlet property="home" destination="e2N-My-QB0" id="xhU-WS-kEg"/>
                         <outlet property="listinButton" destination="qMk-Pc-nJJ" id="vz6-xE-P0b"/>
                         <outlet property="progressView" destination="BDl-5f-gDk" id="pNZ-gm-0vb"/>
                         <outlet property="webViewView" destination="chH-vw-hsR" id="RSx-ve-yKk"/>
@@ -339,7 +332,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7I-H6-8QS">
-                                <rect key="frame" x="98" y="600" width="172" height="52"/>
+                                <rect key="frame" x="98" y="520" width="172" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="17"/>
@@ -350,21 +343,8 @@
                                     <action selector="login:" destination="Tbs-Gy-NzP" eventType="touchUpInside" id="gaF-bQ-TWs"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zka-cu-A0q">
-                                <rect key="frame" x="192" y="487" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Versión beta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb4-sq-WZH">
-                                <rect key="frame" x="106" y="494" width="75" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnB-Fa-xaS" customClass="SSPaddingLabel" customModule="Dicloud" customModuleProvider="target">
-                                <rect key="frame" x="82" y="714" width="204" height="31"/>
+                                <rect key="frame" x="82" y="665" width="204" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.666015625" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -376,7 +356,6 @@
                         <viewLayoutGuide key="safeArea" id="ICV-oJ-L8E"/>
                     </view>
                     <connections>
-                        <outlet property="betaVersion" destination="zka-cu-A0q" id="h5s-hr-c1g"/>
                         <outlet property="errorLabel" destination="AnB-Fa-xaS" id="Ohz-Cq-4FR"/>
                         <outlet property="nickLbl" destination="z9s-LO-krr" id="GsO-jU-3rg"/>
                         <outlet property="nickname" destination="O76-BN-ibB" id="cnz-t7-orH"/>
@@ -482,6 +461,7 @@
     </scenes>
     <resources>
         <image name="Image" width="16" height="16"/>
+        <image name="icons8-home-page-24.png" width="24" height="24"/>
         <image name="icons8-left-24.png" width="24" height="24"/>
         <image name="icons8-phone-25.png" width="25" height="25"/>
     </resources>
