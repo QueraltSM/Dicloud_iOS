@@ -138,14 +138,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
-    func goDataUse() {
-        self.performSegue(withIdentifier: "dataUseSegue", sender: self)
-    }
-    
-    func goNotifications() {
-        self.performSegue(withIdentifier: "settingsSegue", sender: self)
-    }
-    
     func closeSession() {
         HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
         self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
@@ -169,10 +161,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         switch currentItem {
             case "Salir":
                 logout()
-            case "Notificaciones":
-                goNotifications()
-            case "Uso de datos":
-                goDataUse()
+            case "Settings":
+               self.performSegue(withIdentifier: "settingsSegue", sender: self)
             default:
                 goURLItem(item: currentItem!)
             }
@@ -192,6 +182,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 subMenuTitle = submenu.menu
             }
         }
-        sections.append(Section(menuOption: "Configuración", submenuOptions: ["Notificaciones", "Uso de datos", "Salir"], expanded: false))
+        sections.append(Section(menuOption: "Configuración", submenuOptions: ["Settings", "Salir"], expanded: false))
     }
 }

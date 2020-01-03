@@ -35,6 +35,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             as! SettingsCell
         cell.settingOption.text = settings[indexPath.row]
         cell.imageView!.image = UIImage(named: settingsImage[indexPath.row])
+        cell.backgroundColor = UIColor.clear
         return cell
     }
     

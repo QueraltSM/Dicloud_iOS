@@ -16,6 +16,10 @@
 		62652289234A1A9F00BD41E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62652288234A1A9F00BD41E4 /* Images.xcassets */; };
 		6265228B234A1C3D00BD41E4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6265228A234A1C3D00BD41E4 /* Icon.png */; };
 		6265228D234A1C7B00BD41E4 /* DisoftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6265228C234A1C7B00BD41E4 /* DisoftIcon.png */; };
+		6279719623BF8DBF00EAB55A /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719523BF8DBF00EAB55A /* NotificationsVC.swift */; };
+		6279719823BF8DD000EAB55A /* DataUseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719723BF8DD000EAB55A /* DataUseVC.swift */; };
+		6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719923BF949900EAB55A /* DataUseCell.swift */; };
+		627971A123BF9D2000EAB55A /* DataFrequencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627971A023BF9D2000EAB55A /* DataFrequencyVC.swift */; };
 		627C751B237C3EA200CE0E81 /* icons8-left-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 627C751A237C3EA200CE0E81 /* icons8-left-24.png */; };
 		62BC19D0236DBD47003D07EA /* DisoftGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 62BC19CF236DBD47003D07EA /* DisoftGif.gif */; };
 		62BC19D3236DBE19003D07EA /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BC19D2236DBE19003D07EA /* UIImage+Gif.swift */; };
@@ -45,6 +49,10 @@
 		62652288234A1A9F00BD41E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6265228A234A1C3D00BD41E4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6265228C234A1C7B00BD41E4 /* DisoftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisoftIcon.png; sourceTree = "<group>"; };
+		6279719523BF8DBF00EAB55A /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		6279719723BF8DD000EAB55A /* DataUseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseVC.swift; sourceTree = "<group>"; };
+		6279719923BF949900EAB55A /* DataUseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseCell.swift; sourceTree = "<group>"; };
+		627971A023BF9D2000EAB55A /* DataFrequencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFrequencyVC.swift; sourceTree = "<group>"; };
 		627C751A237C3EA200CE0E81 /* icons8-left-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-left-24.png"; sourceTree = "<group>"; };
 		62BC19CF236DBD47003D07EA /* DisoftGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = DisoftGif.gif; sourceTree = "<group>"; };
 		62BC19D2236DBE19003D07EA /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
@@ -121,6 +129,32 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		6279719323BF8D9200EAB55A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				6279719523BF8DBF00EAB55A /* NotificationsVC.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		6279719423BF8D9B00EAB55A /* DataUse */ = {
+			isa = PBXGroup;
+			children = (
+				6279719B23BF9C4800EAB55A /* DataFrequency */,
+				6279719723BF8DD000EAB55A /* DataUseVC.swift */,
+				6279719923BF949900EAB55A /* DataUseCell.swift */,
+			);
+			path = DataUse;
+			sourceTree = "<group>";
+		};
+		6279719B23BF9C4800EAB55A /* DataFrequency */ = {
+			isa = PBXGroup;
+			children = (
+				627971A023BF9D2000EAB55A /* DataFrequencyVC.swift */,
+			);
+			path = DataFrequency;
+			sourceTree = "<group>";
+		};
 		62BC19D1236DBDDB003D07EA /* UIImage+Gif */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +166,8 @@
 		62D0DADF23991FF1004DD41E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				6279719423BF8D9B00EAB55A /* DataUse */,
+				6279719323BF8D9200EAB55A /* Notifications */,
 				62D0DADD23991FEC004DD41E /* SettingsVC.swift */,
 				62D0DAE623992787004DD41E /* SettingsCell.swift */,
 			);
@@ -360,13 +396,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				62652280234A11FB00BD41E4 /* HomeVC.swift in Sources */,
+				6279719623BF8DBF00EAB55A /* NotificationsVC.swift in Sources */,
 				6201743B234DCBD700EF5B90 /* textfieldDesign.swift in Sources */,
+				6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */,
 				62D0DAE723992787004DD41E /* SettingsCell.swift in Sources */,
+				627971A123BF9D2000EAB55A /* DataFrequencyVC.swift in Sources */,
 				62BC19D3236DBE19003D07EA /* UIImage+Gif.swift in Sources */,
 				62DE31AC2347FC5200DCB28D /* ViewController.swift in Sources */,
 				62652282234A129D00BD41E4 /* SideMenuVC.swift in Sources */,
 				62D0DADE23991FEC004DD41E /* SettingsVC.swift in Sources */,
 				62C49066234F52A40087F489 /* ExpandableHeaderViewDelegate.swift in Sources */,
+				6279719823BF8DD000EAB55A /* DataUseVC.swift in Sources */,
 				62DE31AA2347FC5200DCB28D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
