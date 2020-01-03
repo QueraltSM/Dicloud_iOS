@@ -148,12 +148,6 @@ class HomeVC: UIViewController {
             switch response.result {
             case .success:
                 do {
-                    //print("token=")
-                    //print(passwordValue)
-                    //print(nicknameValue)
-                    //print(usernameValue)
-                    //print(String(describing:  tokenValue))
-                    //print(response)
                     let usermenu = try JSONDecoder().decode(Root.self,from: (response.data)!)
                     userMenu = usermenu.usermenu
                     self.setSideMenu()

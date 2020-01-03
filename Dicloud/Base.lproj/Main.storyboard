@@ -40,16 +40,16 @@
                                                     <action selector="refreshWebView:" destination="BYZ-38-t0r" id="7P5-CL-gaK"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem image="icons8-phone-25.png" id="qMk-Pc-nJJ">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="openListin:" destination="BYZ-38-t0r" id="DI5-GT-8ou"/>
-                                                </connections>
-                                            </barButtonItem>
                                             <barButtonItem image="icons8-home-page-24.png" id="OmR-p7-9Ck">
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="goHome:" destination="BYZ-38-t0r" id="cFu-mN-Kku"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="icons8-phone-25.png" id="qMk-Pc-nJJ">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="openListin:" destination="BYZ-38-t0r" id="DI5-GT-8ou"/>
                                                 </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
@@ -133,18 +133,18 @@
                                                     <rect key="frame" x="38" y="5" width="31" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqL-xZ-Z0s">
-                                                    <rect key="frame" x="87" y="8" width="104" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5k-So-fQM">
+                                                    <rect key="frame" x="77" y="11" width="298" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                </button>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="icon" destination="oJP-ez-S4R" id="c7O-wx-8co"/>
-                                            <outlet property="settingOption" destination="jqL-xZ-Z0s" id="HNl-ne-zN5"/>
+                                            <outlet property="settingOption" destination="a5k-So-fQM" id="Bgx-Y8-lo3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -466,6 +466,7 @@
         <image name="icons8-phone-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="nvK-tH-cvI"/>
         <segue reference="7fB-Uz-4Ry"/>
         <segue reference="2T0-5Y-lpd"/>
     </inferredMetricsTieBreakers>

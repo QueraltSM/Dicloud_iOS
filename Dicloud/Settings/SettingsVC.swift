@@ -33,9 +33,14 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             as! SettingsCell
-        cell.settingOption.setTitle(settings[indexPath.row], for: .normal)
+        cell.settingOption.text = settings[indexPath.row]
         cell.imageView!.image = UIImage(named: settingsImage[indexPath.row])
-        cell.settingOption.addTarget(self, action: Selector(("onClicked:")), for: .touchUpInside)
         return cell
-    }    
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let nextSegue = settingsSegue[(indexPath?.row)!]
+        performSegue(withIdentifier: nextSegue, sender: nil)
+    }
 }

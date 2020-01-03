@@ -189,7 +189,6 @@ class ViewController: UIViewController {
             fullname = json["fullName"]! as! String
             companyID = String (describing: json["companyid"])
             token = json["token"]! as! String
-            print(token)
             self.performSegue(withIdentifier: "HomeSegue", sender: [token, listin, fullname])
             break
         case 1: // company error
