@@ -141,6 +141,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func closeSession() {
         HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
         self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
     }
     
     func logout() {

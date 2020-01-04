@@ -8,6 +8,8 @@
 
 import UIKit
 
+var defaults: UserDefaults = UserDefaults.standard
+
 class DataFrequencyVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var data: [String] = []
@@ -37,5 +39,11 @@ class DataFrequencyVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return data[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let data_frequency_selected = data[row] as String
+        defaults.set(data_frequency_selected, forKey: "data_frequency_selected")
+        performSegue(withIdentifier: "DataUseVCSegue", sender: nil)
     }
 }

@@ -167,14 +167,16 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is HomeVC {
-                nicknameValue = nickname.text!
-                usernameValue = username.text!
-                fullnameValue = fullname
-                passwordValue = password.text!
-                tokenValue = token
-                companyIDValue = companyID
-                listinValue = listin
-            }
+            UserDefaults.standard.set(nickname.text!, forKey: "nickname")
+            UserDefaults.standard.set(username.text!, forKey: "username")
+            UserDefaults.standard.set(fullname, forKey: "fullname")
+            UserDefaults.standard.set(password.text!, forKey: "password")
+            UserDefaults.standard.set(token, forKey: "token")
+            UserDefaults.standard.set(companyID, forKey: "companyID")
+            UserDefaults.standard.set(listin, forKey: "listin")
+            UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+            UserDefaults.standard.synchronize()
+        }
     }
     
     func decodeJSON(json: NSDictionary) {

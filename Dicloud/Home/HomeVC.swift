@@ -14,15 +14,14 @@ import SwiftyJSON
 var webView: WKWebView!
 var URL_INDEX: String = ""
 var URL_MENU: String = ""
-var nicknameValue : String = ""
-var usernameValue : String = ""
-var passwordValue : String = ""
-var tokenValue: String = ""
-var companyIDValue: String = ""
-var listinValue: String! = ""
 var userMenu = [UserMenu]()
-var fullnameValue: String = ""
 var goHomeView: Bool = true
+var password: String = ""
+var nickname: String = ""
+var username: String = ""
+var token: String = ""
+var listin: String = ""
+
 
 struct Root: Codable {
     let usermenu: [UserMenu]
@@ -45,9 +44,9 @@ class HomeVC: UIViewController {
     
     func setSideMenu() {
         menu_vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? SideMenuVC
-        menu_vc.nicknameTxt = nicknameValue
-        menu_vc.usernameTxt = fullnameValue
-        menu_vc.companyIDTxt = companyIDValue
+        menu_vc.nicknameTxt = UserDefaults.standard.object(forKey: "nickname") as? String
+        menu_vc.usernameTxt = UserDefaults.standard.object(forKey: "fullname") as? String
+        menu_vc.companyIDTxt = UserDefaults.standard.object(forKey: "companyID") as? String
         let swipeRight = UISwipeGestureRecognizer(target: self, action:#selector(self.respondToGesture))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
         let swipeLeft = UISwipeGestureRecognizer(target: self, action:#selector(self.respondToGesture))
@@ -104,19 +103,29 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.progressView.tintColor = UIColor(hexString: "#8B0000")
         self.progressView.transform = CGAffineTransform(scaleX: 1,y: 2)
+        
         webView = WKWebView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         webView.configuration.preferences.javaScriptEnabled = true
         webView.sizeToFit()
         webView.contentMode = UIView.ContentMode.scaleAspectFit
         webView.evaluateJavaScript("window.open = function(open) { return function (url, name, features) { window.location.href = url; return window; }; } (window.open);", completionHandler: nil)
+    
         webViewView.addSubview(webView)
+    
+        password = UserDefaults.standard.object(forKey: "password") as! String
+        nickname = UserDefaults.standard.object(forKey: "nickname") as! String
+        username = UserDefaults.standard.object(forKey: "username") as! String
+        token = UserDefaults.standard.object(forKey: "token") as! String
+        listin = UserDefaults.standard.object(forKey: "listin") as! String
         
-        if (listinValue == "false") {
+        if (listin == "false") {
             listinButton.image = nil
             listinButton.isEnabled = false
         }
+
         loadSideMenu()
         var url = "https://admin.dicloud.es/"
         URL_INDEX = url
@@ -142,7 +151,8 @@ class HomeVC: UIViewController {
     
     func loadSideMenu() {
         let getMenuURL = "https://app.dicloud.es/getMenu.asp"
-        let getMenuParameters = ["password":passwordValue,"aliasDb":nicknameValue,"appSource":"Dicloud","user":usernameValue, "token": tokenValue]
+    
+        let getMenuParameters = ["password":password,"aliasDb":nickname,"appSource":"Dicloud","user":username, "token": token]
         Alamofire.request(getMenuURL, method: .post, parameters: getMenuParameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
             switch response.result {
@@ -163,8 +173,8 @@ class HomeVC: UIViewController {
     }
     
     func openIndex(url: String) {
-        let url = URL(string: url + "?company=" + nicknameValue
-            + "&user=" + usernameValue + "&pass=" + passwordValue + "&token=" + tokenValue + "&l=1")!
+        let url = URL(string: url + "?company=" + nickname
+            + "&user=" + username + "&pass=" + password + "&token=" + token + "&l=1")!
         loadWebView(url: url)
     }
     

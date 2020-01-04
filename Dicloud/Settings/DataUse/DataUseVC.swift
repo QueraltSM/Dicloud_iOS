@@ -8,9 +8,10 @@
 
 import UIKit
 
+var frequency_vc : DataFrequencyVC!
+
 class DataUseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-     var frequency_vc : DataFrequencyVC!
     @IBOutlet weak var myTableView: UITableView!
     var dataUseOptions: [String] = []
     var dataUseSegue: [String] = []
@@ -34,7 +35,7 @@ class DataUseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             as! DataUseCell
         cell.dataUseOptions.text = dataUseOptions[indexPath.row]
-        //cell.dataUseSubOptions.text = dataUseSubOptions[0] // change for the one selected
+        cell.dataUseSubOptions.text = defaults.object(forKey: "data_frequency_selected") as? String
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -48,7 +49,7 @@ class DataUseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func showPopOver(){
-        self.frequency_vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        frequency_vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.addChild(frequency_vc)
         self.view.addSubview(frequency_vc.view)
     }
