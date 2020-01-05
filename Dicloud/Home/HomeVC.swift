@@ -22,7 +22,6 @@ var username: String = ""
 var token: String = ""
 var listin: String = ""
 
-
 struct Root: Codable {
     let usermenu: [UserMenu]
 }
@@ -103,6 +102,8 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        NewsWorker().doInBackground()
         
         self.progressView.tintColor = UIColor(hexString: "#8B0000")
         self.progressView.transform = CGAffineTransform(scaleX: 1,y: 2)

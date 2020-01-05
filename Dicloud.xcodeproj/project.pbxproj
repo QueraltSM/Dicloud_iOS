@@ -35,6 +35,7 @@
 		62DE31AC2347FC5200DCB28D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DE31AB2347FC5200DCB28D /* ViewController.swift */; };
 		62DE31AF2347FC5200DCB28D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DE31AD2347FC5200DCB28D /* Main.storyboard */; };
 		62DE31B42347FC5500DCB28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DE31B22347FC5500DCB28D /* LaunchScreen.storyboard */; };
+		62DEA4E423C15CD0009F6BF6 /* NewsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DEA4E323C15CD0009F6BF6 /* NewsWorker.swift */; };
 		85E5D9C0D158D8701CFA24A0 /* Pods_Dicloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229A8E2E425E0AB08BF9FBB /* Pods_Dicloud.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		62DE31AE2347FC5200DCB28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62DE31B32347FC5500DCB28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62DE31B52347FC5500DCB28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62DEA4E323C15CD0009F6BF6 /* NewsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWorker.swift; sourceTree = "<group>"; };
 		B229A8E2E425E0AB08BF9FBB /* Pods_Dicloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dicloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31E3862B9D840964E42E8EE /* Pods-Dicloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dicloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dicloud/Pods-Dicloud.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 		62DE31A82347FC5200DCB28D /* Dicloud */ = {
 			isa = PBXGroup;
 			children = (
+				62DEA4E223C15CA2009F6BF6 /* Messages */,
 				62D0DADF23991FF1004DD41E /* Settings */,
 				62BC19D1236DBDDB003D07EA /* UIImage+Gif */,
 				62017439234DCBBF00EF5B90 /* TextfieldsDesign */,
@@ -234,6 +237,14 @@
 				62C49065234F52A40087F489 /* ExpandableHeaderViewDelegate.swift */,
 			);
 			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		62DEA4E223C15CA2009F6BF6 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				62DEA4E323C15CD0009F6BF6 /* NewsWorker.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 		DCD1773CB1222EC83C799DAE /* Frameworks */ = {
@@ -401,6 +412,7 @@
 				6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */,
 				62D0DAE723992787004DD41E /* SettingsCell.swift in Sources */,
 				627971A123BF9D2000EAB55A /* DataFrequencyVC.swift in Sources */,
+				62DEA4E423C15CD0009F6BF6 /* NewsWorker.swift in Sources */,
 				62BC19D3236DBE19003D07EA /* UIImage+Gif.swift in Sources */,
 				62DE31AC2347FC5200DCB28D /* ViewController.swift in Sources */,
 				62652282234A129D00BD41E4 /* SideMenuVC.swift in Sources */,

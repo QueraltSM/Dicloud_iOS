@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+    let notificationCenter = UNUserNotificationCenter.current()
     static var menu_bool = true 
     var window: UIWindow?
 
@@ -24,11 +26,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = homeVC
             self.window?.makeKeyAndVisible()
         }
+        
+        //Confirm Delegete and request for permission
+        notificationCenter.delegate = self
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        notificationCenter.requestAuthorization(options: options) {
+            (didAllow, error) in
+            if !didAllow {
+                print("User has declined notifications")
+            }
+        }
+        
         return true
     }
     
-
+    //MARK: Local Notification Methods Starts here
     
+    // Prepare New Notificaion with details and trigger
+    func scheduleNotification(message: String) {
+        print("entro")
+        //Compose New Notificaion
+        let content = UNMutableNotificationContent()
+        let categoryIdentifire = "Delete Notification Type"
+        content.sound = UNNotificationSound.default
+        content.body = message
+        content.badge = 1
+        content.categoryIdentifier = categoryIdentifire
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let identifier = "Local Notification"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            } else {
+                print("todo bien")
+            }
+        }
+    }
+    
+    //Handle Notification Center Delegate methods
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.notification.request.identifier == "Local Notification" {
+            print("Handling notifications with the Local Notification Identifier")
+        }
+        completionHandler()
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
