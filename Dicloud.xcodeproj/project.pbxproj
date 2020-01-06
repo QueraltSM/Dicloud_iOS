@@ -16,6 +16,7 @@
 		62652289234A1A9F00BD41E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62652288234A1A9F00BD41E4 /* Images.xcassets */; };
 		6265228B234A1C3D00BD41E4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6265228A234A1C3D00BD41E4 /* Icon.png */; };
 		6265228D234A1C7B00BD41E4 /* DisoftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6265228C234A1C7B00BD41E4 /* DisoftIcon.png */; };
+		6269E6E823C25AB100701EF9 /* ChatWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6269E6E723C25AB100701EF9 /* ChatWorker.swift */; };
 		6279719623BF8DBF00EAB55A /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719523BF8DBF00EAB55A /* NotificationsVC.swift */; };
 		6279719823BF8DD000EAB55A /* DataUseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719723BF8DD000EAB55A /* DataUseVC.swift */; };
 		6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719923BF949900EAB55A /* DataUseCell.swift */; };
@@ -50,6 +51,7 @@
 		62652288234A1A9F00BD41E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6265228A234A1C3D00BD41E4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6265228C234A1C7B00BD41E4 /* DisoftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisoftIcon.png; sourceTree = "<group>"; };
+		6269E6E723C25AB100701EF9 /* ChatWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWorker.swift; sourceTree = "<group>"; };
 		6279719523BF8DBF00EAB55A /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		6279719723BF8DD000EAB55A /* DataUseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseVC.swift; sourceTree = "<group>"; };
 		6279719923BF949900EAB55A /* DataUseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseCell.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		6269E6E623C25AA100701EF9 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				6269E6E723C25AB100701EF9 /* ChatWorker.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		6279719323BF8D9200EAB55A /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 		62DE31A82347FC5200DCB28D /* Dicloud */ = {
 			isa = PBXGroup;
 			children = (
+				6269E6E623C25AA100701EF9 /* Chat */,
 				62DEA4E223C15CA2009F6BF6 /* Messages */,
 				62D0DADF23991FF1004DD41E /* Settings */,
 				62BC19D1236DBDDB003D07EA /* UIImage+Gif */,
@@ -409,6 +420,7 @@
 				62652280234A11FB00BD41E4 /* HomeVC.swift in Sources */,
 				6279719623BF8DBF00EAB55A /* NotificationsVC.swift in Sources */,
 				6201743B234DCBD700EF5B90 /* textfieldDesign.swift in Sources */,
+				6269E6E823C25AB100701EF9 /* ChatWorker.swift in Sources */,
 				6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */,
 				62D0DAE723992787004DD41E /* SettingsCell.swift in Sources */,
 				627971A123BF9D2000EAB55A /* DataFrequencyVC.swift in Sources */,

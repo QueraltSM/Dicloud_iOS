@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if let error = error {
                 print("Error \(error.localizedDescription)")
             } else {
-                print("todo bien")
+                print("Show notification")
             }
         }
     }
