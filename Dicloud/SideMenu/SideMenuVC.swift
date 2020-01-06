@@ -19,6 +19,11 @@ struct Section {
         self.submenuOptions = submenuOptions
         self.expanded = expanded
     }
+    
+    init(menuOption: String, expanded: Bool) {
+        self.menuOption = menuOption
+        self.expanded = expanded
+    }
 }
 
 struct cellData {
@@ -117,6 +122,12 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         expanded = sections[section].expanded
         myTableView.reloadSections(IndexSet(integersIn: section...section), with: .automatic)
         myTableView.beginUpdates()
+        
+        if (sections[section].menuOption == "Settings") {
+            self.performSegue(withIdentifier: "settingsSegue", sender: self)
+        } else if (sections[section].menuOption == "Salir") {
+            logout()
+        }
         for i in 0 ..< sections[section].submenuOptions.count {
             myTableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
         }
@@ -155,19 +166,11 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         present(logoutAlert, animated: true, completion: nil)
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRow(at: indexPath!)! as UITableViewCell
         let currentItem = currentCell.textLabel!.text
-        switch currentItem {
-            case "Salir":
-                logout()
-            case "Settings":
-               self.performSegue(withIdentifier: "settingsSegue", sender: self)
-            default:
-                goURLItem(item: currentItem!)
-            }
+        goURLItem(item: currentItem!)
     }
     
     func setMenuData(userMenu : [UserMenu]) {
@@ -184,6 +187,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 subMenuTitle = submenu.menu
             }
         }
-        sections.append(Section(menuOption: "Configuración", submenuOptions: ["Settings", "Salir"], expanded: false))
+        sections.append(Section(menuOption: "Settings", submenuOptions: [], expanded: false))
+        sections.append(Section(menuOption: "Salir", submenuOptions: [], expanded: false))
     }
 }
