@@ -144,7 +144,10 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             if (menu.submenu == item) {
                 URL_MENU = "\(URL_INDEX)\(menu.url)"
                 closeMenu()
-                webView.load(URLRequest(url:(URL(string: URL_MENU)!)))
+                if let url = URL(string: URL_MENU) {
+                    let urlRequest = URLRequest(url: url)
+                    myWebView.load(urlRequest)
+                }
             }
         }
     }

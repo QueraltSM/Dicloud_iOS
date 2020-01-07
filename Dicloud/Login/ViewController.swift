@@ -33,9 +33,9 @@ class ViewController: UIViewController {
     
     var textFieldBtn: UIButton {
         let button = UIButton(type: .custom)
-        var urlPasswordIcon = URL(string: hidePassword)
+        var urlPasswordIcon = URL(string: showPassword)
         if (passwordHidden) {
-            urlPasswordIcon = URL(string: showPassword)
+            urlPasswordIcon = URL(string: hidePassword)
         }
         let data = try? Data(contentsOf: urlPasswordIcon!)
         imageView.image = UIImage(data: data!)

@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.window?.rootViewController = homeVC
             self.window?.makeKeyAndVisible()
         }
-        
         //Confirm Delegete and request for permission
         notificationCenter.delegate = self
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
@@ -36,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("User has declined notifications")
             }
         }
-        
         return true
     }
     
@@ -44,19 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     // Prepare New Notificaion with details and trigger
     func scheduleNotification(message: String) {
-        print("entro")
-        //Compose New Notificaion
+        //Compose New Notification
         let content = UNMutableNotificationContent()
         let categoryIdentifire = "Delete Notification Type"
         content.sound = UNNotificationSound.default
         content.body = message
         content.badge = 1
         content.categoryIdentifier = categoryIdentifire
-        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let identifier = "Local Notification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        
         notificationCenter.add(request) { (error) in
             if let error = error {
                 print("Error \(error.localizedDescription)")
@@ -65,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
     //Handle Notification Center Delegate methods
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,

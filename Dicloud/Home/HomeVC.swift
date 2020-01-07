@@ -11,7 +11,6 @@ import WebKit
 import Alamofire
 import SwiftyJSON
 
-var webView: WKWebView!
 var URL_INDEX: String = ""
 var URL_MENU: String = ""
 var userMenu = [UserMenu]()
@@ -34,12 +33,66 @@ struct UserMenu : Codable {
     var url:URL
 }
 
+var myWebView: WKWebView!
+
 class HomeVC: UIViewController {
+    
+    var popupWebView: WKWebView?
+ 
     var menu_vc : SideMenuVC!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var listinButton: UIBarButtonItem!
     @IBOutlet weak var home: UIButton!
     @IBOutlet weak var webViewView: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NewsWorker().doInBackground()
+        ChatWorker().doInBackground()
+        setupWebView()
+        self.progressView.tintColor = UIColor(hexString: "#8B0000")
+        self.progressView.transform = CGAffineTransform(scaleX: 1,y: 2)
+        password = UserDefaults.standard.object(forKey: "password") as! String
+        nickname = UserDefaults.standard.object(forKey: "nickname") as! String
+        username = UserDefaults.standard.object(forKey: "username") as! String
+        token = UserDefaults.standard.object(forKey: "token") as! String
+        listin = UserDefaults.standard.object(forKey: "listin") as! String
+        if (listin == "false") {
+            listinButton.image = nil
+            listinButton.isEnabled = false
+        }
+        loadSideMenu()
+        var url = "https://admin.dicloud.es/"
+        URL_INDEX = url
+        url = url + "index.asp"
+        openIndex(url: url)
+        if (URL_MENU != "") {
+            loadURLMenu()
+            URL_MENU = ""
+        }
+    }
+    
+    func loadWebView(urlPath: String) {
+         myWebView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        if let url = URL(string: urlPath) {
+            let urlRequest = URLRequest(url: url)
+            myWebView.load(urlRequest)
+        }
+    }
+    
+    func setupWebView() {
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        preferences.javaScriptCanOpenWindowsAutomatically = true
+        let configuration = WKWebViewConfiguration()
+        configuration.preferences = preferences
+        myWebView = WKWebView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        myWebView = WKWebView(frame: view.bounds, configuration: configuration)
+        myWebView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        myWebView.uiDelegate = self
+        myWebView.navigationDelegate = self
+        webViewView.addSubview(myWebView)
+    }
     
     func setSideMenu() {
         menu_vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as? SideMenuVC
@@ -56,18 +109,13 @@ class HomeVC: UIViewController {
     }
     
     func showURLMenu() {
-        loadWebView(url: URL(string: URL_MENU)!)
-    }
-    
-    func loadWebView(url: URL) {
-        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-        webView.load(URLRequest(url: url))
+        loadWebView(urlPath: URL_MENU)
     }
     
     func startProgressView() {
         self.progressView.alpha = 1.0
-        progressView.setProgress(Float(webView.estimatedProgress), animated: true)
-        if (webView.estimatedProgress >= 1.0) {
+        progressView.setProgress(Float(myWebView.estimatedProgress), animated: true)
+        if (myWebView.estimatedProgress >= 1.0) {
             UIView.animate(withDuration: 0.3, delay: 0.1, options:
                 UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
                     self.progressView.alpha = 0.0
@@ -79,81 +127,25 @@ class HomeVC: UIViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
-            if webView.isLoading {
+            if myWebView.isLoading {
                 startProgressView()
             } else {
                 self.progressView.layer.sublayers?.forEach { $0.removeAllAnimations() }
             }
         }
     }
-    
-    func webViewX(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String,
-                 initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-        
-        let alertController = UIAlertController(title: message, message: nil,
-                                                preferredStyle: UIAlertController.Style.alert);
-        
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel) {
-            _ in completionHandler()}
-        );
-        
-        self.present(alertController, animated: true, completion: {});
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        //NewsWorker().doInBackground()
-        ChatWorker().doInBackground()
-        
-        self.progressView.tintColor = UIColor(hexString: "#8B0000")
-        self.progressView.transform = CGAffineTransform(scaleX: 1,y: 2)
-        
-        webView = WKWebView(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        webView.configuration.preferences.javaScriptEnabled = true
-        webView.sizeToFit()
-        webView.contentMode = UIView.ContentMode.scaleAspectFit
-        webView.evaluateJavaScript("window.open = function(open) { return function (url, name, features) { window.location.href = url; return window; }; } (window.open);", completionHandler: nil)
-    
-        webViewView.addSubview(webView)
-    
-        password = UserDefaults.standard.object(forKey: "password") as! String
-        nickname = UserDefaults.standard.object(forKey: "nickname") as! String
-        username = UserDefaults.standard.object(forKey: "username") as! String
-        token = UserDefaults.standard.object(forKey: "token") as! String
-        listin = UserDefaults.standard.object(forKey: "listin") as! String
-        
-        if (listin == "false") {
-            listinButton.image = nil
-            listinButton.isEnabled = false
-        }
 
-        loadSideMenu()
-        var url = "https://admin.dicloud.es/"
-        URL_INDEX = url
-        url = url + "index.asp"
-        openIndex(url: url)
-        if (URL_MENU != "") {
-            loadURLMenu()
-            URL_MENU = ""
-        }
-    }
-
-    
     @IBAction func goHome(_ sender: Any) {
         goHomeView = true
-        let url = "https://admin.dicloud.es/index.asp"
-        openIndex(url: url)
+        openIndex(url: "https://admin.dicloud.es/index.asp")
     }
     
-    
     func loadURLMenu() {
-        loadWebView(url: URL(string: URL_MENU)!)
+        loadWebView(urlPath: URL_MENU)
     }
     
     func loadSideMenu() {
         let getMenuURL = "https://app.dicloud.es/getMenu.asp"
-    
         let getMenuParameters = ["password":password,"aliasDb":nickname,"appSource":"Dicloud","user":username, "token": token]
         Alamofire.request(getMenuURL, method: .post, parameters: getMenuParameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
@@ -175,9 +167,9 @@ class HomeVC: UIViewController {
     }
     
     func openIndex(url: String) {
-        let url = URL(string: url + "?company=" + nickname
-            + "&user=" + username + "&pass=" + password + "&token=" + token + "&l=1")!
-        loadWebView(url: url)
+        let url = url + "?company=" + nickname
+            + "&user=" + username + "&pass=" + password + "&token=" + token + "&l=1"
+        loadWebView(urlPath: url)
     }
     
     @IBAction func openListin(_ sender: Any) {
@@ -186,7 +178,7 @@ class HomeVC: UIViewController {
     
     
     @IBAction func refreshWebView(_ sender: Any) {
-        loadWebView(url: webView.url!)
+        loadWebView(urlPath: (myWebView.url?.absoluteString)!)
     }
 
     
@@ -249,3 +241,30 @@ extension UIColor {
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 }
+
+extension HomeVC: WKUIDelegate {
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        popupWebView = WKWebView(frame: view.bounds, configuration: configuration)
+        popupWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        popupWebView!.navigationDelegate = self
+        popupWebView!.uiDelegate = self
+        view.addSubview(popupWebView!)
+        return popupWebView!
+    }
+    
+    func webViewDidClose(_ webView: WKWebView) {
+        webView.removeFromSuperview()
+        popupWebView = nil
+    }
+}
+
+extension HomeVC: WKNavigationDelegate {
+    open func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
+
