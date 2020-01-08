@@ -18,7 +18,6 @@ class DataUseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        frequency_vc = self.storyboard?.instantiateViewController(withIdentifier: "DataFrequencyVC") as? DataFrequencyVC
         dataUseOptions = ["Frecuencia de sincronización"]
         dataUseSegue = ["DataFrequencySegue"]
         self.myTableView.dataSource = self
@@ -49,6 +48,7 @@ class DataUseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func showPopOver(){
+        frequency_vc = self.storyboard?.instantiateViewController(withIdentifier: "DataFrequencyVC") as? DataFrequencyVC
         frequency_vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.addChild(frequency_vc)
         self.view.addSubview(frequency_vc.view)

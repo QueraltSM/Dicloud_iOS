@@ -44,16 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Prepare New Notificaion with details and trigger
     func scheduleNotification(message: String) {
         //Compose New Notification
-        
-        // check for UserDefaults.standard.object(forKey: "vibration_switch_value")
-        
         let content = UNMutableNotificationContent()
         let categoryIdentifire = "Delete Notification Type"
-    
-
-        //content.sound = UNNotificationSound(SystemSoundID(systemSoundID))
-            
-            //SystemSoundID(systemSoundID)//UNNotificationSound.default
         content.body = message
         content.badge = 1
         content.categoryIdentifier = categoryIdentifire
@@ -71,7 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Show notification")
+
         let systemSoundID = UInt32(UserDefaults.standard.object(forKey: "sound_notification_id") as! Int)
+        let vibration = UserDefaults.standard.object(forKey: "vibration_switch_value") as! Bool
+        if (vibration) {
+            print("Vibration")
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
         AudioServicesPlayAlertSound(UInt32(systemSoundID))
         completionHandler([.alert, .sound])
     }
