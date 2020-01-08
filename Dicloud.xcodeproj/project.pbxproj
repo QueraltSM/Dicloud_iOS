@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6201743B234DCBD700EF5B90 /* textfieldDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201743A234DCBD700EF5B90 /* textfieldDesign.swift */; };
+		6212AC0A23C5E22D00296F50 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0923C5E22D00296F50 /* NotificationsVC.swift */; };
+		6212AC0C23C5E45A00296F50 /* NotificationsCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */; };
+		6212AC0E23C5E58A00296F50 /* NotificationsChooseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */; };
+		6212AC1023C5E60A00296F50 /* NotificationsLedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0F23C5E60A00296F50 /* NotificationsLedCell.swift */; };
 		62148ED1234F1F5300B44E62 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 62148ED0234F1F5200B44E62 /* AppIcon.appiconset */; };
 		62148ED6234F249000B44E62 /* icons8-collapse-arrow-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 62148ED4234F249000B44E62 /* icons8-collapse-arrow-50.png */; };
 		62148ED7234F249000B44E62 /* icons8-expand-arrow-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 62148ED5234F249000B44E62 /* icons8-expand-arrow-50.png */; };
@@ -17,7 +21,6 @@
 		6265228B234A1C3D00BD41E4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6265228A234A1C3D00BD41E4 /* Icon.png */; };
 		6265228D234A1C7B00BD41E4 /* DisoftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6265228C234A1C7B00BD41E4 /* DisoftIcon.png */; };
 		6269E6E823C25AB100701EF9 /* ChatWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6269E6E723C25AB100701EF9 /* ChatWorker.swift */; };
-		6279719623BF8DBF00EAB55A /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719523BF8DBF00EAB55A /* NotificationsVC.swift */; };
 		6279719823BF8DD000EAB55A /* DataUseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719723BF8DD000EAB55A /* DataUseVC.swift */; };
 		6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279719923BF949900EAB55A /* DataUseCell.swift */; };
 		627971A123BF9D2000EAB55A /* DataFrequencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627971A023BF9D2000EAB55A /* DataFrequencyVC.swift */; };
@@ -43,6 +46,10 @@
 /* Begin PBXFileReference section */
 		2C9B8AEA589C49294CC899C4 /* Pods-Dicloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dicloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dicloud/Pods-Dicloud.debug.xcconfig"; sourceTree = "<group>"; };
 		6201743A234DCBD700EF5B90 /* textfieldDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textfieldDesign.swift; sourceTree = "<group>"; };
+		6212AC0923C5E22D00296F50 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCheckCell.swift; sourceTree = "<group>"; };
+		6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsChooseCell.swift; sourceTree = "<group>"; };
+		6212AC0F23C5E60A00296F50 /* NotificationsLedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsLedCell.swift; sourceTree = "<group>"; };
 		62148ED0234F1F5200B44E62 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		62148ED4234F249000B44E62 /* icons8-collapse-arrow-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-collapse-arrow-50.png"; sourceTree = "<group>"; };
 		62148ED5234F249000B44E62 /* icons8-expand-arrow-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-expand-arrow-50.png"; sourceTree = "<group>"; };
@@ -52,7 +59,6 @@
 		6265228A234A1C3D00BD41E4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6265228C234A1C7B00BD41E4 /* DisoftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisoftIcon.png; sourceTree = "<group>"; };
 		6269E6E723C25AB100701EF9 /* ChatWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWorker.swift; sourceTree = "<group>"; };
-		6279719523BF8DBF00EAB55A /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		6279719723BF8DD000EAB55A /* DataUseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseVC.swift; sourceTree = "<group>"; };
 		6279719923BF949900EAB55A /* DataUseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUseCell.swift; sourceTree = "<group>"; };
 		627971A023BF9D2000EAB55A /* DataFrequencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFrequencyVC.swift; sourceTree = "<group>"; };
@@ -98,6 +104,17 @@
 			path = TextfieldsDesign;
 			sourceTree = "<group>";
 		};
+		6212AC0823C5E21B00296F50 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				6212AC0923C5E22D00296F50 /* NotificationsVC.swift */,
+				6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */,
+				6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */,
+				6212AC0F23C5E60A00296F50 /* NotificationsLedCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		62148ED2234F23DB00B44E62 /* MenuIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,12 +158,11 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		6279719323BF8D9200EAB55A /* Notifications */ = {
+		6279719323BF8D9200EAB55A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				6279719523BF8DBF00EAB55A /* NotificationsVC.swift */,
 			);
-			path = Notifications;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		6279719423BF8D9B00EAB55A /* DataUse */ = {
@@ -179,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				6279719423BF8D9B00EAB55A /* DataUse */,
-				6279719323BF8D9200EAB55A /* Notifications */,
+				6279719323BF8D9200EAB55A /* Settings */,
 				62D0DADD23991FEC004DD41E /* SettingsVC.swift */,
 				62D0DAE623992787004DD41E /* SettingsCell.swift */,
 			);
@@ -208,6 +224,7 @@
 		62DE31A82347FC5200DCB28D /* Dicloud */ = {
 			isa = PBXGroup;
 			children = (
+				6212AC0823C5E21B00296F50 /* Notifications */,
 				6269E6E623C25AA100701EF9 /* Chat */,
 				62DEA4E223C15CA2009F6BF6 /* Messages */,
 				62D0DADF23991FF1004DD41E /* Settings */,
@@ -418,12 +435,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				62652280234A11FB00BD41E4 /* HomeVC.swift in Sources */,
-				6279719623BF8DBF00EAB55A /* NotificationsVC.swift in Sources */,
 				6201743B234DCBD700EF5B90 /* textfieldDesign.swift in Sources */,
+				6212AC0A23C5E22D00296F50 /* NotificationsVC.swift in Sources */,
 				6269E6E823C25AB100701EF9 /* ChatWorker.swift in Sources */,
 				6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */,
 				62D0DAE723992787004DD41E /* SettingsCell.swift in Sources */,
+				6212AC1023C5E60A00296F50 /* NotificationsLedCell.swift in Sources */,
 				627971A123BF9D2000EAB55A /* DataFrequencyVC.swift in Sources */,
+				6212AC0E23C5E58A00296F50 /* NotificationsChooseCell.swift in Sources */,
 				62DEA4E423C15CD0009F6BF6 /* NewsWorker.swift in Sources */,
 				62BC19D3236DBE19003D07EA /* UIImage+Gif.swift in Sources */,
 				62DE31AC2347FC5200DCB28D /* ViewController.swift in Sources */,
@@ -432,6 +451,7 @@
 				62C49066234F52A40087F489 /* ExpandableHeaderViewDelegate.swift in Sources */,
 				6279719823BF8DD000EAB55A /* DataUseVC.swift in Sources */,
 				62DE31AA2347FC5200DCB28D /* AppDelegate.swift in Sources */,
+				6212AC0C23C5E45A00296F50 /* NotificationsCheckCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

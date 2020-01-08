@@ -2,69 +2,58 @@
 //  NotificationsVC.swift
 //  Dicloud
 //
-//  Created by Queralt Sosa Mompel on 5/1/20.
+//  Created by Queralt Sosa Mompel on 8/1/20.
 //  Copyright © 2020 Queralt Sosa Mompel. All rights reserved.
 //
 
 import UIKit
 
-class NotificationsVC: UIViewController, UNUserNotificationCenterDelegate {
+class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
+ {
 
-    let userNotificationCenter = UNUserNotificationCenter.current()
-    
-    func requestNotificationAuthorization() {
-        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
-        userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
-            if let error = error {
-                print("Error: ", error)
-            }
-        }
-    }
-    
-    func sendNotification() {
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "Test"
-        notificationContent.body = "Test body"
-        notificationContent.badge = NSNumber(value: 3)
-        
-        if let url = Bundle.main.url(forResource: "dune",
-                                     withExtension: "png") {
-            if let attachment = try? UNNotificationAttachment(identifier: "dune",
-                                                              url: url,
-                                                              options: nil) {
-                notificationContent.attachments = [attachment]
-            }
-        }
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
-                                                        repeats: false)
-        let request = UNNotificationRequest(identifier: "testNotification",
-                                            content: notificationContent,
-                                            trigger: trigger)
-        
-        userNotificationCenter.add(request) { (error) in
-            if let error = error {
-                print("Notification Error: ", error)
-            }
-        }
-    }
+    @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userNotificationCenter.delegate = self
-        self.requestNotificationAuthorization()
-        self.sendNotification()
+        self.myTableView.dataSource = self
+        self.myTableView.delegate = self
+    }
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
     }
-    */
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
+            cell.title.text = "Notificaciones de mensajes"
+            cell.state.isOn = true
+            return cell
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell") as! NotificationsChooseCell
+            cell.title.text = "Sonido"
+            cell.sound.text = "El predeterminado"
+            return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
+            cell.title.text = "Vibración"
+            cell.state.isOn = true
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ledCell") as! NotificationsLedCell
+            cell.title.text = "Led"
+            cell.color.text = "Rojo/falta imagen izquierda"
+            return cell
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 
 }

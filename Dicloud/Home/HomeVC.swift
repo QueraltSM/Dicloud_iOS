@@ -47,8 +47,8 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NewsWorker().doInBackground()
-        ChatWorker().doInBackground()
+        //NewsWorker().doInBackground()
+        //ChatWorker().doInBackground()
         setupWebView()
         self.progressView.tintColor = UIColor(hexString: "#8B0000")
         self.progressView.transform = CGAffineTransform(scaleX: 1,y: 2)
