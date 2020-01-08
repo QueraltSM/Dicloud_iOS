@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6201743B234DCBD700EF5B90 /* textfieldDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201743A234DCBD700EF5B90 /* textfieldDesign.swift */; };
+		62051FC023C6254600274E20 /* SoundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62051FBF23C6254600274E20 /* SoundsVC.swift */; };
+		62051FC223C628FE00274E20 /* icons8-delete-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 62051FC123C628FD00274E20 /* icons8-delete-24.png */; };
 		6212AC0A23C5E22D00296F50 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0923C5E22D00296F50 /* NotificationsVC.swift */; };
 		6212AC0C23C5E45A00296F50 /* NotificationsCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */; };
 		6212AC0E23C5E58A00296F50 /* NotificationsChooseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		2C9B8AEA589C49294CC899C4 /* Pods-Dicloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dicloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dicloud/Pods-Dicloud.debug.xcconfig"; sourceTree = "<group>"; };
 		6201743A234DCBD700EF5B90 /* textfieldDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textfieldDesign.swift; sourceTree = "<group>"; };
+		62051FBF23C6254600274E20 /* SoundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsVC.swift; sourceTree = "<group>"; };
+		62051FC123C628FD00274E20 /* icons8-delete-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-24.png"; sourceTree = "<group>"; };
 		6212AC0923C5E22D00296F50 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCheckCell.swift; sourceTree = "<group>"; };
 		6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsChooseCell.swift; sourceTree = "<group>"; };
@@ -104,9 +108,18 @@
 			path = TextfieldsDesign;
 			sourceTree = "<group>";
 		};
+		62051FBE23C6252C00274E20 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				62051FBF23C6254600274E20 /* SoundsVC.swift */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		6212AC0823C5E21B00296F50 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				62051FBE23C6252C00274E20 /* Sounds */,
 				6212AC0923C5E22D00296F50 /* NotificationsVC.swift */,
 				6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */,
 				6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */,
@@ -118,6 +131,7 @@
 		62148ED2234F23DB00B44E62 /* MenuIcons */ = {
 			isa = PBXGroup;
 			children = (
+				62051FC123C628FD00274E20 /* icons8-delete-24.png */,
 				62D0DAE823995438004DD41E /* icons8-refresh-24.png */,
 				62D0DAE42399257A004DD41E /* icons8-notification-24.png */,
 				627C751A237C3EA200CE0E81 /* icons8-left-24.png */,
@@ -367,6 +381,7 @@
 				62148ED6234F249000B44E62 /* icons8-collapse-arrow-50.png in Resources */,
 				62D1968D234A6E2200919761 /* icons8-menu-50.png in Resources */,
 				62D0DAE52399257A004DD41E /* icons8-notification-24.png in Resources */,
+				62051FC223C628FE00274E20 /* icons8-delete-24.png in Resources */,
 				627C751B237C3EA200CE0E81 /* icons8-left-24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +456,7 @@
 				6279719A23BF949900EAB55A /* DataUseCell.swift in Sources */,
 				62D0DAE723992787004DD41E /* SettingsCell.swift in Sources */,
 				6212AC1023C5E60A00296F50 /* NotificationsLedCell.swift in Sources */,
+				62051FC023C6254600274E20 /* SoundsVC.swift in Sources */,
 				627971A123BF9D2000EAB55A /* DataFrequencyVC.swift in Sources */,
 				6212AC0E23C5E58A00296F50 /* NotificationsChooseCell.swift in Sources */,
 				62DEA4E423C15CD0009F6BF6 /* NewsWorker.swift in Sources */,

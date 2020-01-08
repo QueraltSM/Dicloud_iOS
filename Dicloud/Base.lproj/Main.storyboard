@@ -300,11 +300,92 @@
                     </view>
                     <connections>
                         <outlet property="myTableView" destination="nYO-Tl-emc" id="oK2-Ie-Cqx"/>
+                        <segue destination="B6y-WW-8dW" kind="show" identifier="SoundsVC" id="ul7-VF-WoT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fl-kt-gRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2917.5999999999999" y="-219.45812807881774"/>
+        </scene>
+        <!--SoundsVC-->
+        <scene sceneID="Lhx-De-1le">
+            <objects>
+                <viewController id="B6y-WW-8dW" customClass="SoundsVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ocF-eD-8xi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDW-ZW-DpM">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.0" green="0.30980392159999998" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Settings" id="fne-Hu-8LU">
+                                        <barButtonItem key="leftBarButtonItem" image="icons8-left-24.png" id="4jY-Qw-La6">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="openMenu:" destination="BYZ-38-t0r" id="ODn-fA-92e"/>
+                                                <segue destination="WqY-IU-135" kind="show" identifier="NotificationsVC" animates="NO" id="azu-co-tfX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="okI-ra-4TM">
+                                            <rect key="frame" x="71" y="4.6666666666666679" width="199" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="20"/>
+                                            <state key="normal" title="Sonidos">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="goHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="htf-kq-WaR"/>
+                                            </connections>
+                                        </button>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="uci-B2-Y5y">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dPs-FD-dXT">
+                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Hecho">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="saveNewNotificationSound:" destination="B6y-WW-8dW" eventType="touchUpInside" id="uOr-z9-Zg1"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqL-dl-5BM">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="AQ8-rS-Hvl">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AQ8-rS-Hvl" id="btO-az-YLN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0RS-iI-ybF"/>
+                    </view>
+                    <connections>
+                        <outlet property="myTableView" destination="TqL-dl-5BM" id="Y0c-sE-O4C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgv-nr-4jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4344.8000000000002" y="-219.45812807881774"/>
         </scene>
         <!--Data UseVC-->
         <scene sceneID="Ln2-1o-5YY">
@@ -662,6 +743,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ogq-Tx-9xs"/>
+        <segue reference="azu-co-tfX"/>
         <segue reference="7fB-Uz-4Ry"/>
         <segue reference="Tgm-BY-a8V"/>
     </inferredMetricsTieBreakers>
