@@ -27,11 +27,25 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return 4
     }
 
+    @objc func checkCellValueChange(mySwitch: UISwitch) {
+        let value = mySwitch.isOn
+        defaults.set(value, forKey: "notifications_switch_value")
+    }
+    
+    @objc func checkCellVibrationValueChange(mySwitch: UISwitch) {
+        let value = mySwitch.isOn
+        defaults.set(value, forKey: "vibration_switch_value")
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
             cell.title.text = "Notificaciones de mensajes"
-            cell.state.isOn = true
+            if (UserDefaults.standard.object(forKey: "notifications_switch_value") == nil) {
+                defaults.set(true, forKey: "notifications_switch_value")
+            }
+            cell.state.isOn = UserDefaults.standard.object(forKey: "notifications_switch_value") as! Bool
+            cell.state.addTarget(self, action: #selector(checkCellValueChange), for:UIControl.Event.valueChanged)
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell") as! NotificationsChooseCell
@@ -41,7 +55,11 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
             cell.title.text = "Vibración"
-            cell.state.isOn = true
+            if (UserDefaults.standard.object(forKey: "vibration_switch_value") == nil) {
+                defaults.set(true, forKey: "vibration_switch_value")
+            }
+            cell.state.isOn = UserDefaults.standard.object(forKey: "vibration_switch_value") as! Bool
+            cell.state.addTarget(self, action: #selector(checkCellVibrationValueChange), for:UIControl.Event.valueChanged)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ledCell") as! NotificationsLedCell
@@ -54,6 +72,4 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
 }
