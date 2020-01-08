@@ -26,7 +26,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-
+    
     func enableNotificationsCells(userInteractionEnabled: Bool) {
         let cells = self.myTableView.visibleCells
         var index = 0
@@ -47,6 +47,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         } else {
             enableNotificationsCells(userInteractionEnabled:true)
         }
+        myTableView.reloadData()
     }
     
     @objc func checkCellVibrationValueChange(mySwitch: UISwitch) {
@@ -55,19 +56,22 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let showNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value")
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
             cell.title.text = "Notificaciones de mensajes"
-            if (UserDefaults.standard.object(forKey: "notifications_switch_value") == nil) {
+            if (showNotifications == nil) {
                 defaults.set(true, forKey: "notifications_switch_value")
             }
-            cell.state.isOn = UserDefaults.standard.object(forKey: "notifications_switch_value") as! Bool
+            cell.state.isOn = showNotifications as! Bool
             cell.state.addTarget(self, action: #selector(checkCellValueChange), for:UIControl.Event.valueChanged)
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell") as! NotificationsChooseCell
             cell.title.text = "Sonido"
             cell.sound.text = "El predeterminado"
+            cell.title.isEnabled = showNotifications as! Bool
+            cell.sound.isEnabled = showNotifications as! Bool
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
@@ -77,11 +81,15 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             }
             cell.state.isOn = UserDefaults.standard.object(forKey: "vibration_switch_value") as! Bool
             cell.state.addTarget(self, action: #selector(checkCellVibrationValueChange), for:UIControl.Event.valueChanged)
+            cell.title.isEnabled = showNotifications as! Bool
+            cell.state.isEnabled = showNotifications as! Bool
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ledCell") as! NotificationsLedCell
             cell.title.text = "Led"
             cell.color.text = "Rojo/falta imagen izquierda"
+            cell.title.isEnabled = showNotifications as! Bool
+            cell.color.isEnabled = showNotifications as! Bool
             return cell
         }
     }

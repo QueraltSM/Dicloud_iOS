@@ -47,8 +47,14 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //NewsWorker().doInBackground()
-        //ChatWorker().doInBackground()
+        if (UserDefaults.standard.object(forKey: "notifications_switch_value") == nil) {
+            defaults.set(true, forKey: "notifications_switch_value")
+        }
+        let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as! Bool
+        if (sendNotifications) {
+            NewsWorker().doInBackground()
+            ChatWorker().doInBackground()
+        }
         setupWebView()
         self.progressView.tintColor = UIColor(hexString: "#8B0000")
         self.progressView.transform = CGAffineTransform(scaleX: 1,y: 2)
