@@ -27,9 +27,26 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return 4
     }
 
+    func enableNotificationsCells(userInteractionEnabled: Bool) {
+        let cells = self.myTableView.visibleCells
+        var index = 0
+        for cell in cells {
+            if (index > 0) {
+                cell.isUserInteractionEnabled = userInteractionEnabled
+            }
+            index = index + 1
+        }
+        myTableView.reloadData()
+    }
+    
     @objc func checkCellValueChange(mySwitch: UISwitch) {
         let value = mySwitch.isOn
         defaults.set(value, forKey: "notifications_switch_value")
+        if (!value) {
+            enableNotificationsCells(userInteractionEnabled:false)
+        } else {
+            enableNotificationsCells(userInteractionEnabled:true)
+        }
     }
     
     @objc func checkCellVibrationValueChange(mySwitch: UISwitch) {
