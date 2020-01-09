@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6201743B234DCBD700EF5B90 /* textfieldDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6201743A234DCBD700EF5B90 /* textfieldDesign.swift */; };
 		62051FC023C6254600274E20 /* SoundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62051FBF23C6254600274E20 /* SoundsVC.swift */; };
-		62051FC223C628FE00274E20 /* icons8-delete-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 62051FC123C628FD00274E20 /* icons8-delete-24.png */; };
 		6212AC0A23C5E22D00296F50 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0923C5E22D00296F50 /* NotificationsVC.swift */; };
 		6212AC0C23C5E45A00296F50 /* NotificationsCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */; };
 		6212AC0E23C5E58A00296F50 /* NotificationsChooseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */; };
@@ -43,6 +42,8 @@
 		62DE31B42347FC5500DCB28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DE31B22347FC5500DCB28D /* LaunchScreen.storyboard */; };
 		62DEA4E423C15CD0009F6BF6 /* NewsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DEA4E323C15CD0009F6BF6 /* NewsWorker.swift */; };
 		62ED09C323C658AA00EDD00F /* LedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ED09C223C658AA00EDD00F /* LedVC.swift */; };
+		62F66DF723C7834B00C8FE4A /* icons8-wrench-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F66DF623C7834B00C8FE4A /* icons8-wrench-24.png */; };
+		62F66DF923C7834E00C8FE4A /* icons8-shutdown-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 62F66DF823C7834E00C8FE4A /* icons8-shutdown-24.png */; };
 		85E5D9C0D158D8701CFA24A0 /* Pods_Dicloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229A8E2E425E0AB08BF9FBB /* Pods_Dicloud.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +51,6 @@
 		2C9B8AEA589C49294CC899C4 /* Pods-Dicloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dicloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dicloud/Pods-Dicloud.debug.xcconfig"; sourceTree = "<group>"; };
 		6201743A234DCBD700EF5B90 /* textfieldDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textfieldDesign.swift; sourceTree = "<group>"; };
 		62051FBF23C6254600274E20 /* SoundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsVC.swift; sourceTree = "<group>"; };
-		62051FC123C628FD00274E20 /* icons8-delete-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-delete-24.png"; sourceTree = "<group>"; };
 		6212AC0923C5E22D00296F50 /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		6212AC0B23C5E45A00296F50 /* NotificationsCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCheckCell.swift; sourceTree = "<group>"; };
 		6212AC0D23C5E58A00296F50 /* NotificationsChooseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsChooseCell.swift; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 		62DE31B52347FC5500DCB28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62DEA4E323C15CD0009F6BF6 /* NewsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWorker.swift; sourceTree = "<group>"; };
 		62ED09C223C658AA00EDD00F /* LedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedVC.swift; sourceTree = "<group>"; };
+		62F66DF623C7834B00C8FE4A /* icons8-wrench-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-wrench-24.png"; sourceTree = "<group>"; };
+		62F66DF823C7834E00C8FE4A /* icons8-shutdown-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-shutdown-24.png"; sourceTree = "<group>"; };
 		B229A8E2E425E0AB08BF9FBB /* Pods_Dicloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dicloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31E3862B9D840964E42E8EE /* Pods-Dicloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dicloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dicloud/Pods-Dicloud.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,9 +136,10 @@
 		62148ED2234F23DB00B44E62 /* MenuIcons */ = {
 			isa = PBXGroup;
 			children = (
-				62051FC123C628FD00274E20 /* icons8-delete-24.png */,
 				62D0DAE823995438004DD41E /* icons8-refresh-24.png */,
 				62D0DAE42399257A004DD41E /* icons8-notification-24.png */,
+				62F66DF823C7834E00C8FE4A /* icons8-shutdown-24.png */,
+				62F66DF623C7834B00C8FE4A /* icons8-wrench-24.png */,
 				627C751A237C3EA200CE0E81 /* icons8-left-24.png */,
 				62D7B1FD2369CF7E00F5F9EE /* icons8-phone-25.png */,
 				6265228C234A1C7B00BD41E4 /* DisoftIcon.png */,
@@ -380,6 +383,7 @@
 			files = (
 				62BC19D0236DBD47003D07EA /* DisoftGif.gif in Resources */,
 				62148ED1234F1F5300B44E62 /* AppIcon.appiconset in Resources */,
+				62F66DF723C7834B00C8FE4A /* icons8-wrench-24.png in Resources */,
 				62652289234A1A9F00BD41E4 /* Images.xcassets in Resources */,
 				62D7B1FE2369CF7F00F5F9EE /* icons8-phone-25.png in Resources */,
 				62148ED7234F249000B44E62 /* icons8-expand-arrow-50.png in Resources */,
@@ -392,7 +396,7 @@
 				62148ED6234F249000B44E62 /* icons8-collapse-arrow-50.png in Resources */,
 				62D1968D234A6E2200919761 /* icons8-menu-50.png in Resources */,
 				62D0DAE52399257A004DD41E /* icons8-notification-24.png in Resources */,
-				62051FC223C628FE00274E20 /* icons8-delete-24.png in Resources */,
+				62F66DF923C7834E00C8FE4A /* icons8-shutdown-24.png in Resources */,
 				627C751B237C3EA200CE0E81 /* icons8-left-24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

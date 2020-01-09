@@ -37,17 +37,23 @@ class ExpandableHeaderView: UITableViewHeaderFooterView {
         self.delegate = delegate
     }
     
-    /*func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var myCustomView: UIImageView
-        var myImage: UIImage = UIImage(named: "icons8-expand-arrow-50")!
-        let header: UITableViewHeaderFooterView = view as UITableViewHeaderFooterView
-        header.addSubview(myCustomView)
-        return header
-    }*/
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.textLabel?.textColor = UIColor.black
+        let imageView = UIImageView()
+        imageView.frame = CGRect(x:10, y:10, width:20, height:20)
+        if (textLabel?.text == "Salir") {
+            imageView.image = UIImage(named: "icons8-shutdown-24")
+            self.contentView.addSubview(imageView)
+        } else if (textLabel?.text == "Settings") {
+            imageView.image = UIImage(named: "icons8-wrench-24")
+            self.contentView.addSubview(imageView)
+        } else {
+            let view = UIView()
+            view.frame = CGRect(x:10, y:10, width:20, height:20)
+            view.backgroundColor = UIColor.white
+            self.contentView.addSubview(view)
+        }
         self.contentView.backgroundColor = UIColor.white
     }
 }

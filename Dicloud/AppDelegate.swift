@@ -27,7 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.window?.rootViewController = homeVC
             self.window?.makeKeyAndVisible()
         }
-        //Confirm Delegete and request for permission
+        return true
+    }
+    
+    func confirmUserAuthorization() {
         notificationCenter.delegate = self
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         notificationCenter.requestAuthorization(options: options) {
@@ -36,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("User has declined notifications")
             }
         }
-        return true
     }
     
     //MARK: Local Notification Methods Starts here
@@ -63,11 +65,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Show notification")
-
+        if (UserDefaults.standard.object(forKey: "sound_notification_id") == nil) {
+            defaults.set(1003, forKey: "sound_notification_id")
+        }
+        if (UserDefaults.standard.object(forKey: "vibration_switch_value") == nil) {
+            defaults.set(true, forKey: "vibration_switch_value")
+        }
         let systemSoundID = UInt32(UserDefaults.standard.object(forKey: "sound_notification_id") as! Int)
         let vibration = UserDefaults.standard.object(forKey: "vibration_switch_value") as! Bool
         if (vibration) {
-            print("Vibration")
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
         AudioServicesPlayAlertSound(UInt32(systemSoundID))

@@ -61,7 +61,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         var logoPath = companyPhotoURL + "Logo_" + companyIDTxt! + "_1.gif"
         var urlLogo = URL(string: logoPath)
         var data = try? Data(contentsOf: urlLogo!)
-        
         if data != nil {
             setImage(data: data!)
         } else {
@@ -107,7 +106,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = ExpandableHeaderView()
-        header.customInit(title: sections[section].menuOption, section: section, delegate: self)
+        header.customInit(title:sections[section].menuOption, section: section, delegate: self)
         return header
     }
     
@@ -122,7 +121,6 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         expanded = sections[section].expanded
         myTableView.reloadSections(IndexSet(integersIn: section...section), with: .automatic)
         myTableView.beginUpdates()
-        
         if (sections[section].menuOption == "Settings") {
             self.performSegue(withIdentifier: "settingsSegue", sender: self)
         } else if (sections[section].menuOption == "Salir") {
