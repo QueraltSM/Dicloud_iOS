@@ -38,7 +38,30 @@ class NewsWorker {
         appDelegate?.scheduleNotification(message: message)
     }
     
+    func resetNotifiedNews() {
+        for notifiedNew in notifiedNews {
+            var contained = false
+            var pos = 0
+            for new in allNews {
+                if (notifiedNew.from_id == new.from_id) {
+                    contained = true
+                    if (notifiedNew.messages_count > new.messages_count) {
+                        notifiedNews.remove(at: pos)
+                        notifiedNews.append(new)
+                    }
+                }
+            }
+            if (!contained) {
+                notifiedNews.remove(at: pos)
+            }
+            pos = pos + 1
+        }
+    }
+    
     func decodeAllMessages() {
+        
+        resetNotifiedNews()
+        
         for new in allNews {
             var contained = false
             var pos = 0
