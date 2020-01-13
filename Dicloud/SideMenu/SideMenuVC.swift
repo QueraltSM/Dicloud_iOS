@@ -75,7 +75,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         let image = UIImage(data: data)
         self.companyLogo.image = image
         self.companyLogo.contentMode = .scaleAspectFit
-        self.companyLogo.layer.borderWidth = 1
+        self.companyLogo.layer.borderWidth = 0.5
         self.companyLogo.layer.borderColor = UIColor.white.cgColor
         self.companyLogo.layer.backgroundColor = UIColor.white.cgColor
     }
