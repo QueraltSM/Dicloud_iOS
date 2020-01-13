@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+var chatTimer : Timer?
 var allChats = [Chat]()
 var notifiedChats = [Chat]()
 
@@ -69,10 +70,10 @@ class ChatWorker {
         }
     }
     
-    func checkMessages() {
-        let getNewsURL = "https://app.dicloud.es/getPendingMessages.asp"
-        let getNewsParameters = ["password":password,"aliasDb":nickname,"appSource":"Dicloud","user":username, "token": token]
-        Alamofire.request(getNewsURL, method: .post, parameters: getNewsParameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
+    @objc func checkMessages() {
+        let getChatURL = "https://app.dicloud.es/getPendingMessages.asp"
+        let getChatParameters = ["password":password,"aliasDb":nickname,"appSource":"Dicloud","user":username, "token": token]
+        Alamofire.request(getChatURL, method: .post, parameters: getChatParameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
             switch response.result {
             case .success:
@@ -90,12 +91,23 @@ class ChatWorker {
             }
         }
     }
+
+    func start(){
+        if chatTimer == nil {
+            chatTimer =  Timer.scheduledTimer(
+                timeInterval: TimeInterval(5),
+                target      : self,
+                selector    : #selector(self.checkMessages),
+                userInfo    : nil,
+                repeats     : true)
+        }
+    }
     
-    func doInBackground(){
-        let delayTime = DispatchTime.now() + 5.0
-        DispatchQueue.main.asyncAfter(deadline: delayTime, execute: {
-            self.checkMessages()
-            self.doInBackground()
-        })
+    
+    func stop() {
+        if chatTimer != nil {
+            chatTimer!.invalidate()
+            chatTimer = nil
+        }
     }
 }

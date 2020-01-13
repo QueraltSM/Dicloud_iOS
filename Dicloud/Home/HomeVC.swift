@@ -52,8 +52,8 @@ class HomeVC: UIViewController {
         }
         let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as! Bool
         if (sendNotifications) {
-            NewsWorker().doInBackground()
-            ChatWorker().doInBackground()
+            NewsWorker().start()
+            ChatWorker().start()
         }
         setupWebView()
         self.progressView.tintColor = UIColor(hexString: "#8B0000")

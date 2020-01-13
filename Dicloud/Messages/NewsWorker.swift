@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+var newsTimer : Timer?
 var allNews = [New]()
 var notifiedNews = [New]()
 
@@ -30,6 +31,7 @@ class NewsWorker {
     var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     func showNotification(new: New) {
+        print("entro en show not")
         var total = "mensaje"
         if (new.messages_count > 1) {
             total = "mensajes"
@@ -59,16 +61,13 @@ class NewsWorker {
     }
     
     func decodeAllMessages() {
-        
         resetNotifiedNews()
-        
         for new in allNews {
             var contained = false
             var pos = 0
-
             let from_id = new.from_id
             let messages_count = new.messages_count
-            
+    
             for notifiedNew in notifiedNews {
                 if (notifiedNew.from_id == from_id && notifiedNew.messages_count < messages_count) {
                     contained = true
@@ -92,7 +91,7 @@ class NewsWorker {
         }
     }
     
-    func checkMessages() {
+    @objc func checkMessages() {
         let getNewsURL = "https://app.dicloud.es/getPendingNews.asp"
         let getNewsParameters = ["password":password,"aliasDb":nickname,"appSource":"Dicloud","user":username, "token": token]
         Alamofire.request(getNewsURL, method: .post, parameters: getNewsParameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
@@ -114,11 +113,22 @@ class NewsWorker {
         }
     }
     
-    func doInBackground(){
-        let delayTime = DispatchTime.now() + 5.0
-        DispatchQueue.main.asyncAfter(deadline: delayTime, execute: {
-            self.checkMessages()
-            self.doInBackground()
-        })
+    func start(){
+        if newsTimer == nil {
+            newsTimer =  Timer.scheduledTimer(
+                timeInterval: TimeInterval(5),
+                target      : self,
+                selector    : #selector(self.checkMessages),
+                userInfo    : nil,
+                repeats     : true)
+        }
+    }
+
+    
+    func stop() {
+        if newsTimer != nil {
+            newsTimer!.invalidate()
+            newsTimer = nil
+        }
     }
 }

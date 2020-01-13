@@ -122,7 +122,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         expanded = sections[section].expanded
         myTableView.reloadSections(IndexSet(integersIn: section...section), with: .automatic)
         myTableView.beginUpdates()
-        if (sections[section].menuOption == "Settings") {
+        if (sections[section].menuOption == "Sistema") {
             self.performSegue(withIdentifier: "settingsSegue", sender: self)
         } else if (sections[section].menuOption == "Salir") {
             logout()
@@ -152,6 +152,8 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func closeSession() {
+        NewsWorker().stop()
+        ChatWorker().stop()
         HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
         self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
@@ -189,7 +191,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 subMenuTitle = submenu.menu
             }
         }
-        sections.append(Section(menuOption: "Settings", submenuOptions: [], expanded: false))
+        sections.append(Section(menuOption: "Sistema", submenuOptions: [], expanded: false))
         sections.append(Section(menuOption: "Salir", submenuOptions: [], expanded: false))
     }
 }
