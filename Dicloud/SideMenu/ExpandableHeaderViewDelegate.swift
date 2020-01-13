@@ -40,20 +40,6 @@ class ExpandableHeaderView: UITableViewHeaderFooterView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.textLabel?.textColor = UIColor.black
-        let imageView = UIImageView()
-        imageView.frame = CGRect(x:10, y:10, width:20, height:20)
-        if (textLabel?.text == "Salir") {
-            imageView.image = UIImage(named: "icons8-shutdown-24")
-            self.contentView.addSubview(imageView)
-        } else if (textLabel?.text == "Settings") {
-            imageView.image = UIImage(named: "icons8-wrench-24")
-            self.contentView.addSubview(imageView)
-        } else {
-            let view = UIView()
-            view.frame = CGRect(x:10, y:10, width:20, height:20)
-            view.backgroundColor = UIColor.white
-            self.contentView.addSubview(view)
-        }
         self.contentView.backgroundColor = UIColor.white
     }
 }
