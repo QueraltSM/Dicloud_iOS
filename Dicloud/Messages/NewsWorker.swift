@@ -31,7 +31,6 @@ class NewsWorker {
     var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     func showNotification(new: New) {
-        print("entro en show not")
         var total = "mensaje"
         if (new.messages_count > 1) {
             total = "mensajes"
