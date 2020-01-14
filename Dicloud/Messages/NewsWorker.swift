@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UserNotifications
 
 var newsTimer : Timer?
 var allNews = [New]()
@@ -37,6 +38,7 @@ class NewsWorker {
         }
         let message = "Tienes \(new.messages_count) \(total) de \(new.from)"
         appDelegate?.scheduleNotification(message: message)
+        
     }
     
     func resetNotifiedNews() {
@@ -66,7 +68,6 @@ class NewsWorker {
             var pos = 0
             let from_id = new.from_id
             let messages_count = new.messages_count
-    
             for notifiedNew in notifiedNews {
                 if (notifiedNew.from_id == from_id && notifiedNew.messages_count < messages_count) {
                     contained = true
@@ -112,17 +113,16 @@ class NewsWorker {
         }
     }
     
-    func start(){
-        if newsTimer == nil {
+    func start(time: Int){
+        if newsTimer == nil && time > 0 {
             newsTimer =  Timer.scheduledTimer(
-                timeInterval: TimeInterval(5),
+                timeInterval: TimeInterval(time),
                 target      : self,
                 selector    : #selector(self.checkMessages),
                 userInfo    : nil,
                 repeats     : true)
         }
     }
-
     
     func stop() {
         if newsTimer != nil {

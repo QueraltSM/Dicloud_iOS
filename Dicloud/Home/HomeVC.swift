@@ -47,13 +47,10 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.snapshotView(afterScreenUpdates: true)
         if (UserDefaults.standard.object(forKey: "notifications_switch_value") == nil) {
             defaults.set(true, forKey: "notifications_switch_value")
-        }
-        let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as! Bool
-        if (sendNotifications) {
-            NewsWorker().start()
-            ChatWorker().start()
         }
         setupWebView()
         self.progressView.tintColor = UIColor(hexString: "#8B0000")

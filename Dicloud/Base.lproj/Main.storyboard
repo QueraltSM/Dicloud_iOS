@@ -85,7 +85,7 @@
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="HomeVC" storyboardIdentifier="HomeVC" title="HomeVC" id="BYZ-38-t0r" customClass="HomeVC" customModule="Dicloud" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" title="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeVC" customModule="Dicloud" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="1289" y="-166"/>
         </scene>
-        <!--SettingsVC-->
+        <!--SystemVC-->
         <scene sceneID="KSm-HA-6P6">
             <objects>
-                <viewController id="046-xT-0CS" customClass="SettingsVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SystemVC" title="SystemVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="046-xT-0CS" customClass="SettingsVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X2V-jl-Dxg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,7 +176,7 @@
                                                 <segue destination="BYZ-38-t0r" kind="show" id="6n4-lH-wgY"/>
                                             </connections>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9RM-oc-xIj">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9RM-oc-xIj">
                                             <rect key="frame" x="88" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -242,7 +242,7 @@
         <!--NotificationsVC-->
         <scene sceneID="cnQ-rV-Sl4">
             <objects>
-                <viewController id="WqY-IU-135" customClass="NotificationsVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationsVC" title="NotificationsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WqY-IU-135" customClass="NotificationsVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCa-0Q-bas">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,7 +263,7 @@
                                                 <segue destination="046-xT-0CS" kind="show" id="7fB-Uz-4Ry"/>
                                             </connections>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z5u-Wg-Tf4">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z5u-Wg-Tf4">
                                             <rect key="frame" x="88" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -391,7 +391,7 @@
         <!--SoundsVC-->
         <scene sceneID="Lhx-De-1le">
             <objects>
-                <viewController id="B6y-WW-8dW" customClass="SoundsVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SoundsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B6y-WW-8dW" customClass="SoundsVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocF-eD-8xi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -471,7 +471,7 @@
         <!--Data UseVC-->
         <scene sceneID="Ln2-1o-5YY">
             <objects>
-                <viewController id="hts-k0-sEn" customClass="DataUseVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataUseVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hts-k0-sEn" customClass="DataUseVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iwd-fB-jjx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,7 +617,7 @@
         <!--View Controller-->
         <scene sceneID="D9S-OS-TTx">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tbs-Gy-NzP" customClass="ViewController" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Tbs-Gy-NzP" customClass="ViewController" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rlp-vd-ilm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -727,10 +727,10 @@
             </objects>
             <point key="canvasLocation" x="45.600000000000001" y="33.990147783251231"/>
         </scene>
-        <!--Side MenuVC-->
+        <!--MenuVC-->
         <scene sceneID="LZg-ew-DF4">
             <objects>
-                <viewController storyboardIdentifier="MenuVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pag-OB-GSJ" customClass="SideMenuVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuVC" title="MenuVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pag-OB-GSJ" customClass="SideMenuVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TO8-qh-SnY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -829,9 +829,9 @@
         <image name="icons8-phone-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kqM-wB-Zzq"/>
-        <segue reference="nHT-Xx-npl"/>
-        <segue reference="ka5-fb-KfB"/>
+        <segue reference="Ogq-Tx-9xs"/>
+        <segue reference="nvK-tH-cvI"/>
+        <segue reference="tZU-ca-AIb"/>
         <segue reference="Tgm-BY-a8V"/>
     </inferredMetricsTieBreakers>
 </document>

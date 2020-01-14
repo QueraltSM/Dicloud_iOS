@@ -45,7 +45,6 @@ class ChatWorker {
                 }
             }
             if (!contained) {
-                print("removed = id = \(notifiedChats[pos].from_id) y mes = \(notifiedChats[pos].messages_count)")
                 notifiedChats.remove(at: pos)
             }
             pos = pos + 1
@@ -93,10 +92,10 @@ class ChatWorker {
         }
     }
 
-    func start(){
-        if chatTimer == nil {
-            chatTimer =  Timer.scheduledTimer(
-                timeInterval: TimeInterval(5),
+    func start(time: Int){
+        if newsTimer == nil && time > 0 {
+            newsTimer =  Timer.scheduledTimer(
+                timeInterval: TimeInterval(time),
                 target      : self,
                 selector    : #selector(self.checkMessages),
                 userInfo    : nil,

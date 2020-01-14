@@ -13,11 +13,18 @@ import AVFoundation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+    var backgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
     let notificationCenter = UNUserNotificationCenter.current()
     static var menu_bool = true 
     var window: UIWindow?
+    let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as! Bool
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
+        })
+    
         let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(userLoginStatus){
             self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -27,6 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.window?.makeKeyAndVisible()
         }
         return true
+    }
+
+    func checkMessages(time:Int){
+        newsTimer = nil
+        chatTimer = nil
+        NewsWorker().start(time:time)
+        ChatWorker().start(time:time)
     }
     
     func confirmUserAuthorization() {
@@ -40,12 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    
     //MARK: Local Notification Methods Starts here
-    // Prepare New Notificaion with details and trigger
+    // Prepare New Notification with details and trigger
     func scheduleNotification(message: String) {
-        //Compose New Notification
         let content = UNMutableNotificationContent()
-        let categoryIdentifire = "Delete Notification Type"
+        let categoryIdentifire = "notification"
         content.body = message
         content.badge = 1
         content.categoryIdentifier = categoryIdentifire
@@ -95,21 +109,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
+        if (sendNotifications) {
+            var time = 0
+            if (defaults.object(forKey: "data_frequency_selected") as? String == nil) {
+                defaults.set("Cada 15 minutos", forKey: "data_frequency_selected")
+            }
+            switch (defaults.object(forKey: "data_frequency_selected") as? String) {
+            case "Cada 15 minutos":
+                time = 900
+                break
+            case "Cada 30 minutos":
+                time = 1800
+                break
+            case "Cada hora":
+                time = 3600
+                break
+            case "Cada 3 horas":
+                time = 10800
+                break
+            case "Cada 5 horas":
+                time = 18000
+                break
+            default:
+                time = 0
+                break
+            }
+            newsTimer?.invalidate()
+            chatTimer?.invalidate()
+            self.checkMessages(time:time)
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+         if (sendNotifications) {
+            newsTimer?.invalidate()
+            chatTimer?.invalidate()
+            self.checkMessages(time:5)
+         }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
