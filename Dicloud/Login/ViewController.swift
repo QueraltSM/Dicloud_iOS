@@ -176,10 +176,9 @@ class ViewController: UIViewController {
             UserDefaults.standard.set(listin, forKey: "listin")
             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
             UserDefaults.standard.synchronize()
-            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.confirmUserAuthorization()
-            
+            appDelegate.applicationDidBecomeActive(UIApplication.shared)
         }
     }
     
