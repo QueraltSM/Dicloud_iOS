@@ -64,6 +64,9 @@ class ViewController: UIViewController {
         nickname.directionMaterial = placeholderDirection.placeholderUp
         username.directionMaterial = placeholderDirection.placeholderUp
         password.directionMaterial = placeholderDirection.placeholderUp
+        nickname.setUnderline(color: UIColor.gray)
+        username.setUnderline(color: UIColor.gray)
+        password.setUnderline(color: UIColor.gray)
         errorLabel.layer.cornerRadius = 10
         errorLabel.layer.masksToBounds = true
         password.rightView = textFieldBtn

@@ -622,9 +622,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atM-ra-QJE">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atM-ra-QJE">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -634,9 +633,8 @@
                                     <navigationItem title="Dicloud" id="jOi-IM-l2V"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alias" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O76-BN-ibB" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alias" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O76-BN-ibB" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
                                 <rect key="frame" x="82" y="158" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -645,9 +643,8 @@
                                     <action selector="nicknameTouched:" destination="Tbs-Gy-NzP" eventType="touchDown" id="B3y-wn-hCj"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-e4-2DO" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
-                                <rect key="frame" x="82" y="247" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-e4-2DO" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
+                                <rect key="frame" x="82" y="268" width="204" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -656,9 +653,8 @@
                                     <action selector="usernameTouched:" destination="Tbs-Gy-NzP" eventType="touchDown" id="dQZ-MV-Wd9"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CoB-Wa-faq" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
-                                <rect key="frame" x="89" y="353" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CoB-Wa-faq" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
+                                <rect key="frame" x="89" y="388" width="204" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -667,38 +663,27 @@
                                     <action selector="passwordTouched:" destination="Tbs-Gy-NzP" eventType="touchDown" id="isa-y6-zQD"/>
                                 </connections>
                             </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Este campo es obligatorio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sj6-OZ-HiX">
-                                <rect key="frame" x="89" y="391" width="157" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este campo es obligatorio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sj6-OZ-HiX">
+                                <rect key="frame" x="89" y="413" width="157" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Este campo es obligatorio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fL-1o-GNu">
-                                <rect key="frame" x="82" y="295" width="157" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este campo es obligatorio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fL-1o-GNu">
+                                <rect key="frame" x="82" y="293" width="157" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Este campo es obligatorio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9s-LO-krr">
-                                <rect key="frame" x="82" y="196" width="157" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnB-Fa-xaS" customClass="SSPaddingLabel" customModule="Dicloud" customModuleProvider="target">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnB-Fa-xaS" customClass="SSPaddingLabel" customModule="Dicloud" customModuleProvider="target">
                                 <rect key="frame" x="82" y="665" width="204" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.666015625" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7I-H6-8QS">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7I-H6-8QS">
                                 <rect key="frame" x="82" y="523" width="204" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.46302481083637159" blue="0.81467896635198944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Iniciar sesión">
@@ -708,8 +693,50 @@
                                     <action selector="login:" destination="Tbs-Gy-NzP" eventType="touchUpInside" id="gaF-bQ-TWs"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este campo es obligatorio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9s-LO-krr">
+                                <rect key="frame" x="82" y="187" width="157" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M7I-H6-8QS" firstAttribute="centerX" secondItem="ICV-oJ-L8E" secondAttribute="centerX" id="1Ky-34-OdK"/>
+                            <constraint firstItem="sj6-OZ-HiX" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="369" id="1Rd-3N-oob"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="sj6-OZ-HiX" secondAttribute="trailing" constant="129" id="22V-em-Hyk"/>
+                            <constraint firstItem="sV4-e4-2DO" firstAttribute="centerX" secondItem="ICV-oJ-L8E" secondAttribute="centerX" constant="-3.5" id="2dO-lo-Kw8"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="M7I-H6-8QS" secondAttribute="trailing" constant="89" id="3Z9-FL-qJh"/>
+                            <constraint firstItem="O76-BN-ibB" firstAttribute="centerX" secondItem="ICV-oJ-L8E" secondAttribute="centerX" constant="-3.5" id="5mb-hE-aR8"/>
+                            <constraint firstItem="4fL-1o-GNu" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" constant="82" id="856-bg-QqP"/>
+                            <constraint firstItem="CoB-Wa-faq" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="344" id="9zR-wz-eW6"/>
+                            <constraint firstItem="AnB-Fa-xaS" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" constant="82" id="BdR-l0-5aK"/>
+                            <constraint firstItem="z9s-LO-krr" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="143" id="F3U-e8-qju"/>
+                            <constraint firstItem="sV4-e4-2DO" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" constant="82" id="F90-uY-HO7"/>
+                            <constraint firstItem="AnB-Fa-xaS" firstAttribute="height" secondItem="Rlp-vd-ilm" secondAttribute="height" id="Fmw-8v-bIw"/>
+                            <constraint firstItem="atM-ra-QJE" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" id="GoH-hh-HBN"/>
+                            <constraint firstItem="CoB-Wa-faq" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" constant="89" id="HUX-zp-kc1"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="sV4-e4-2DO" secondAttribute="trailing" constant="89" id="IN3-uY-Ff4"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="z9s-LO-krr" secondAttribute="trailing" constant="136" id="KCl-Eh-DSU"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="atM-ra-QJE" secondAttribute="trailing" id="O7M-d5-ghY"/>
+                            <constraint firstItem="M7I-H6-8QS" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="479" id="P4U-dq-WS0"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="O76-BN-ibB" secondAttribute="trailing" constant="89" id="Uq3-w9-8XW"/>
+                            <constraint firstItem="sV4-e4-2DO" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="224" id="Vq0-Wf-yam"/>
+                            <constraint firstItem="AnB-Fa-xaS" firstAttribute="width" secondItem="Rlp-vd-ilm" secondAttribute="width" id="YdK-kR-Q6Z"/>
+                            <constraint firstItem="O76-BN-ibB" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="114" id="cIp-YT-7wF"/>
+                            <constraint firstItem="sj6-OZ-HiX" firstAttribute="centerX" secondItem="ICV-oJ-L8E" secondAttribute="centerX" constant="-20" id="dRb-nz-zux"/>
+                            <constraint firstItem="AnB-Fa-xaS" firstAttribute="centerX" secondItem="ICV-oJ-L8E" secondAttribute="centerX" id="e9O-mq-tFy"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="CoB-Wa-faq" secondAttribute="trailing" constant="82" id="gFM-Uw-PdG"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="AnB-Fa-xaS" secondAttribute="trailing" constant="89" id="hqa-l3-WQz"/>
+                            <constraint firstItem="4fL-1o-GNu" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="249" id="kzo-Ts-Mwr"/>
+                            <constraint firstItem="O76-BN-ibB" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="114" id="ogp-dj-OgD"/>
+                            <constraint firstItem="atM-ra-QJE" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" id="owS-Oj-i6Q"/>
+                            <constraint firstItem="ICV-oJ-L8E" firstAttribute="trailing" secondItem="4fL-1o-GNu" secondAttribute="trailing" constant="136" id="qfq-do-NNj"/>
+                            <constraint firstItem="O76-BN-ibB" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="114" id="s2i-Od-YEu"/>
+                            <constraint firstItem="z9s-LO-krr" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" constant="82" id="uFK-sO-ULi"/>
+                            <constraint firstItem="sj6-OZ-HiX" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" constant="89" id="vFq-NM-kkS"/>
+                            <constraint firstItem="O76-BN-ibB" firstAttribute="leading" secondItem="ICV-oJ-L8E" secondAttribute="leading" constant="82" id="xQn-XJ-WPP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ICV-oJ-L8E"/>
                     </view>
                     <connections>
@@ -832,6 +859,6 @@
         <segue reference="Ogq-Tx-9xs"/>
         <segue reference="nvK-tH-cvI"/>
         <segue reference="ka5-fb-KfB"/>
-        <segue reference="Tgm-BY-a8V"/>
+        <segue reference="2T0-5Y-lpd"/>
     </inferredMetricsTieBreakers>
 </document>
