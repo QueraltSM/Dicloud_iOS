@@ -16,6 +16,7 @@ class LedVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.snapshotView(afterScreenUpdates: true)
         data = [
             "Rojo",
             "Azul",

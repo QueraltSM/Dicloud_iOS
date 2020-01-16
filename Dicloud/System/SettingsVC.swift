@@ -17,6 +17,7 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.snapshotView(afterScreenUpdates: true)
         settings = ["Notificaciones", "Datos de uso"]
         settingsImage = ["icons8-notification-24", "icons8-refresh-24"]
         settingsSegue = ["NotificationsVCSegue", "DataUseVCSegue"]

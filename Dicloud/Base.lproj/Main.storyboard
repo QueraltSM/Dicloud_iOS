@@ -492,10 +492,10 @@
                                                 <segue destination="046-xT-0CS" kind="show" id="tZU-ca-AIb"/>
                                             </connections>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HR7-ta-1nG">
-                                            <rect key="frame" x="88" y="4.6666666666666679" width="199" height="35"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HR7-ta-1nG">
+                                            <rect key="frame" x="88" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="Uso de datos">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -829,6 +829,7 @@
         <image name="icons8-phone-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="PHw-WI-6y8"/>
         <segue reference="Ogq-Tx-9xs"/>
         <segue reference="nvK-tH-cvI"/>
         <segue reference="tZU-ca-AIb"/>

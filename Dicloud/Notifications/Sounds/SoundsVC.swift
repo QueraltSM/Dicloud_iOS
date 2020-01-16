@@ -19,6 +19,7 @@ class SoundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.snapshotView(afterScreenUpdates: true)
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
         sounds = ["New mail","Mail sent", "Voice mail", "Message received", "Message sent", "Alarm",

@@ -16,6 +16,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.snapshotView(afterScreenUpdates: true)
         self.myTableView.dataSource = self
         self.myTableView.delegate = self
     }

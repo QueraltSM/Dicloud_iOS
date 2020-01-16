@@ -60,6 +60,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.snapshotView(afterScreenUpdates: true)
         nickname.directionMaterial = placeholderDirection.placeholderUp
         username.directionMaterial = placeholderDirection.placeholderUp
         password.directionMaterial = placeholderDirection.placeholderUp

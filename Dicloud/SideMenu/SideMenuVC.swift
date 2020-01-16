@@ -48,6 +48,7 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.snapshotView(afterScreenUpdates: true)
         self.myTableView.delegate = self
         self.myTableView.dataSource = self
         self.myTableView.tableFooterView = UIView()

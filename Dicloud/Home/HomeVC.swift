@@ -47,7 +47,6 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.snapshotView(afterScreenUpdates: true)
         if (UserDefaults.standard.object(forKey: "notifications_switch_value") == nil) {
             defaults.set(true, forKey: "notifications_switch_value")

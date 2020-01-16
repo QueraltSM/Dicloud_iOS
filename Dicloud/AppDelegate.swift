@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             (didAllow, error) in
             if !didAllow {
                 print("User has declined notifications")
+                UserDefaults.standard.set(false, forKey: "notifications_switch_value")
             }
         }
     }
@@ -76,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("Show notification")
+        
         if (UserDefaults.standard.object(forKey: "sound_notification_id") == nil) {
             defaults.set(1003, forKey: "sound_notification_id")
         }
@@ -88,6 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if (vibration) {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
+        
+        print("Show notification")
         AudioServicesPlayAlertSound(UInt32(systemSoundID))
         completionHandler([.alert, .sound])
     }

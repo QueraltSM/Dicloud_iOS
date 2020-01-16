@@ -211,7 +211,7 @@
 			path = "UIImage+Gif";
 			sourceTree = "<group>";
 		};
-		62D0DADF23991FF1004DD41E /* Settings */ = {
+		62D0DADF23991FF1004DD41E /* System */ = {
 			isa = PBXGroup;
 			children = (
 				6279719423BF8D9B00EAB55A /* DataUse */,
@@ -219,7 +219,7 @@
 				62D0DADD23991FEC004DD41E /* SettingsVC.swift */,
 				62D0DAE623992787004DD41E /* SettingsCell.swift */,
 			);
-			path = Settings;
+			path = System;
 			sourceTree = "<group>";
 		};
 		62DE319D2347FC5200DCB28D = {
@@ -247,7 +247,7 @@
 				6212AC0823C5E21B00296F50 /* Notifications */,
 				6269E6E623C25AA100701EF9 /* Chat */,
 				62DEA4E223C15CA2009F6BF6 /* Messages */,
-				62D0DADF23991FF1004DD41E /* Settings */,
+				62D0DADF23991FF1004DD41E /* System */,
 				62BC19D1236DBDDB003D07EA /* UIImage+Gif */,
 				62017439234DCBBF00EF5B90 /* TextfieldsDesign */,
 				62DE31BD2347FF3800DCB28D /* SideMenu */,

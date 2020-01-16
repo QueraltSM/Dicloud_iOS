@@ -18,6 +18,10 @@ class DataUseVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.snapshotView(afterScreenUpdates: true)
+        if (defaults.object(forKey: "data_frequency_selected") as? String == nil) {
+            defaults.set("Cada 15 minutos", forKey: "data_frequency_selected")
+        }
         dataUseOptions = ["Frecuencia de sincronización"]
         dataUseSegue = ["DataFrequencySegue"]
         self.myTableView.dataSource = self
