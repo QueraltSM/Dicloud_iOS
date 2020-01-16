@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     static var menu_bool = true 
     var window: UIWindow?
     let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
+    let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
         })
     
-        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(userLoginStatus){
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -70,6 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         notificationCenter.add(request) { (error) in
             if let error = error {
                 print("Error \(error.localizedDescription)")
+            } else {
+                print("todo bien")
             }
         }
     }
@@ -77,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
         if (UserDefaults.standard.object(forKey: "sound_notification_id") == nil) {
             defaults.set(1003, forKey: "sound_notification_id")
         }
@@ -89,7 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if (vibration) {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
-        
         print("Show notification")
         AudioServicesPlayAlertSound(UInt32(systemSoundID))
         completionHandler([.alert, .sound])
@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        if (sendNotifications != nil && sendNotifications!) {
+        if (userLoginStatus && sendNotifications != nil && sendNotifications!) {
             var time = 0
             if (defaults.object(forKey: "data_frequency_selected") as? String == nil) {
                 defaults.set("Cada 15 minutos", forKey: "data_frequency_selected")
@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        if (sendNotifications != nil && sendNotifications!) {
+        if (userLoginStatus && sendNotifications != nil && sendNotifications!) {
             newsTimer?.invalidate()
             chatTimer?.invalidate()
             self.checkMessages(time:5)
