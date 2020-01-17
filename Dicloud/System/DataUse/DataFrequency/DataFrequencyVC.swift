@@ -10,8 +10,9 @@ import UIKit
 
 var defaults: UserDefaults = UserDefaults.standard
 
-class DataFrequencyVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class DataFrequencyVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
+    @IBOutlet weak var myTableView: UITableView!
     var data: [String] = []
     @IBOutlet weak var frequency: UIPickerView!
    
@@ -25,8 +26,53 @@ class DataFrequencyVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
             "Cada 5 horas",
             "Nunca",
         ]
-        frequency.delegate = self
-        frequency.dataSource = self
+        self.myTableView.dataSource = self
+        self.myTableView.delegate = self
+        self.myTableView.backgroundColor = UIColor.white
+        self.myTableView.backgroundView?.backgroundColor = UIColor.white
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Frecuencia de sincronización"
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.textLabel!.font = UIFont.boldSystemFont(ofSize: 20)
+        header.textLabel?.textAlignment = NSTextAlignment.center
+    }
+    
+    /*func tableView(_ tableView: UITableView, titleForHeaderInSection
+        section: Int) -> String? {
+        return "Frecuencia de sincronización"
+    }*/
+    
+    func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int{
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = data[indexPath.row]
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.init(hexString: "#DDF4FF")
+        cell.selectedBackgroundView = backgroundView
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let data_frequency_selected = data[(indexPath?.row)!] as String
+        defaults.set(data_frequency_selected, forKey: "data_frequency_selected")
+        performSegue(withIdentifier: "DataUseVCSegue", sender: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -427,7 +427,7 @@
                                                 <segue destination="WqY-IU-135" kind="show" identifier="NotificationsVC" animates="NO" id="azu-co-tfX"/>
                                             </connections>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="okI-ra-4TM">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="okI-ra-4TM">
                                             <rect key="frame" x="71" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -608,38 +608,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QE-Bs-rgB">
-                                <rect key="frame" x="43" y="198" width="288" height="426"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-Tg-FNS">
-                                        <rect key="frame" x="-16" y="-23" width="316" height="363"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Frecuencia de sincronización" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnx-Nm-WDi">
-                                        <rect key="frame" x="-2" y="27" width="293" height="47"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="kBE-NR-0Yu"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-zC-WDn">
+                                <rect key="frame" x="48" y="204" width="279" height="72"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="1Hh-H2-7FY" style="IBUITableViewCellStyleDefault" id="H6y-XW-7BJ">
+                                        <rect key="frame" x="0.0" y="28" width="279" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H6y-XW-7BJ" id="lmC-wr-Hzy">
+                                            <rect key="frame" x="0.0" y="0.0" width="279" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Hh-H2-7FY">
+                                                    <rect key="frame" x="15" y="0.0" width="249" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2QE-Bs-rgB" firstAttribute="centerX" secondItem="Rb1-YJ-eEN" secondAttribute="centerX" id="UXZ-aJ-5eM"/>
-                            <constraint firstItem="2QE-Bs-rgB" firstAttribute="top" secondItem="Rb1-YJ-eEN" secondAttribute="top" constant="154" id="iWX-gH-gDL"/>
-                            <constraint firstItem="2QE-Bs-rgB" firstAttribute="centerY" secondItem="Rb1-YJ-eEN" secondAttribute="centerY" id="z3U-4M-XJG"/>
+                            <constraint firstItem="2hn-zC-WDn" firstAttribute="centerX" secondItem="8dl-qW-jjo" secondAttribute="centerX" id="ese-ht-NLd"/>
+                            <constraint firstItem="Rb1-YJ-eEN" firstAttribute="bottom" secondItem="2hn-zC-WDn" secondAttribute="bottom" constant="502" id="ky6-7S-FLD"/>
+                            <constraint firstItem="2hn-zC-WDn" firstAttribute="top" secondItem="Rb1-YJ-eEN" secondAttribute="top" constant="160" id="m0B-YX-nGS"/>
+                            <constraint firstItem="2hn-zC-WDn" firstAttribute="leading" secondItem="Rb1-YJ-eEN" secondAttribute="leading" constant="48" id="ysc-uI-oKd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rb1-YJ-eEN"/>
                     </view>
                     <navigationItem key="navigationItem" id="YZd-dz-5r0"/>
                     <connections>
-                        <outlet property="frequency" destination="lnA-Tg-FNS" id="Whi-D7-vfP"/>
+                        <outlet property="myTableView" destination="2hn-zC-WDn" id="jAK-PK-77Z"/>
                         <segue destination="hts-k0-sEn" kind="show" identifier="DataUseVCSegue" animates="NO" id="Ogq-Tx-9xs"/>
                     </connections>
                 </viewController>
@@ -895,9 +900,9 @@
         <image name="icons8-phone-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kqM-wB-Zzq"/>
+        <segue reference="Ogq-Tx-9xs"/>
         <segue reference="azu-co-tfX"/>
         <segue reference="ka5-fb-KfB"/>
-        <segue reference="Tgm-BY-a8V"/>
+        <segue reference="2T0-5Y-lpd"/>
     </inferredMetricsTieBreakers>
 </document>
