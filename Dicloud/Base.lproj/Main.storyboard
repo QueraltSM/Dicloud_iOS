@@ -90,9 +90,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqn-JA-5DN">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqn-JA-5DN">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,17 +127,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BDl-5f-gDk">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BDl-5f-gDk">
                                 <rect key="frame" x="0.0" y="86" width="375" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chH-vw-hsR">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chH-vw-hsR">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="chH-vw-hsR" secondAttribute="bottom" id="5rf-gS-v78"/>
+                            <constraint firstItem="chH-vw-hsR" firstAttribute="leading" secondItem="Eqn-JA-5DN" secondAttribute="leading" id="9kt-1V-uuv"/>
+                            <constraint firstItem="chH-vw-hsR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="CkS-1z-LfG"/>
+                            <constraint firstAttribute="trailing" secondItem="chH-vw-hsR" secondAttribute="trailing" id="UJO-xx-yrz"/>
+                            <constraint firstItem="chH-vw-hsR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZQ1-eV-oZJ"/>
+                            <constraint firstItem="chH-vw-hsR" firstAttribute="trailing" secondItem="BDl-5f-gDk" secondAttribute="trailing" id="cSU-f9-pJU"/>
+                            <constraint firstItem="chH-vw-hsR" firstAttribute="trailing" secondItem="Eqn-JA-5DN" secondAttribute="trailing" id="sfD-qd-C6k"/>
+                            <constraint firstItem="chH-vw-hsR" firstAttribute="top" secondItem="Eqn-JA-5DN" secondAttribute="bottom" id="tcm-q5-oah"/>
+                            <constraint firstItem="chH-vw-hsR" firstAttribute="leading" secondItem="BDl-5f-gDk" secondAttribute="leading" id="xX6-aX-Hwr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="i5c-gW-0E6"/>
