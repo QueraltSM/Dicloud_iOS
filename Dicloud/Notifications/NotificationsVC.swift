@@ -67,22 +67,24 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
             setNotificationsCell(cell: cell, showNotifications: showNotifications)
+            setCellBackgroundView(cell: cell, color:"#FFFFFF")
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell") as! NotificationsChooseCell
             setSoundCell(cell: cell, showNotifications: showNotifications)
-            setCellBackgroundView(cell: cell)
+            setCellBackgroundView(cell: cell, color:"#DDF4FF")
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
             setVibrationCell(cell: cell, showNotifications: showNotifications)
+            setCellBackgroundView(cell: cell, color:"#FFFFFF")
             return cell
         }
     }
     
-    func setCellBackgroundView(cell: UITableViewCell) {
+    func setCellBackgroundView(cell: UITableViewCell, color: String) {
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.init(hexString: "#DDF4FF")
+        backgroundView.backgroundColor = UIColor.init(hexString: color)
         cell.selectedBackgroundView = backgroundView
     }
     
