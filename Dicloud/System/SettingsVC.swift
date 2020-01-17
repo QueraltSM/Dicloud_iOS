@@ -37,6 +37,9 @@ class SettingsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.settingOption.text = settings[indexPath.row]
         cell.imageView!.image = UIImage(named: settingsImage[indexPath.row])
         cell.backgroundColor = UIColor.clear
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.init(hexString: "#DDF4FF")
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
     

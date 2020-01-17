@@ -38,6 +38,9 @@ class SoundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         cell?.textLabel!.text = sounds[indexPath.row]
         cell?.textLabel!.textAlignment = .center
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.init(hexString: "#DDF4FF")
+        cell!.selectedBackgroundView = backgroundView
         return cell!
     }
     

@@ -82,6 +82,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell") as! NotificationsChooseCell
             setSoundCell(cell: cell, showNotifications: showNotifications)
+            setCellBackgroundView(cell: cell)
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
@@ -90,8 +91,15 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ledCell") as! NotificationsLedCell
             setLedCell(cell: cell, showNotifications: showNotifications)
+            setCellBackgroundView(cell: cell)
             return cell
         }
+    }
+    
+    func setCellBackgroundView(cell: UITableViewCell) {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.init(hexString: "#DDF4FF")
+        cell.selectedBackgroundView = backgroundView
     }
     
     func setNotificationsCell(cell: NotificationsCheckCell, showNotifications: Bool) {
