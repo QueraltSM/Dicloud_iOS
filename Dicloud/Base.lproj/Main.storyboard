@@ -10,78 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LedVC-->
-        <scene sceneID="lKx-Gb-VOq">
-            <objects>
-                <viewController storyboardIdentifier="LedVC" title="LedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q60-06-9rM" customClass="LedVC" customModule="Dicloud" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="id2-sW-Ugs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ddh-tb-Tec">
-                                <rect key="frame" x="43" y="192" width="288" height="326"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJ8-KR-8kR">
-                                        <rect key="frame" x="-16" y="-23" width="316" height="363"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Led" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFc-yF-ALA">
-                                        <rect key="frame" x="-2" y="27" width="290" height="47"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="rpA-SN-nVE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VL-GD-WVa">
-                                        <rect key="frame" x="179" y="288" width="54" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Aceptar"/>
-                                        <connections>
-                                            <action selector="saveLedColor:" destination="Q60-06-9rM" eventType="touchUpInside" id="ht0-Is-XgY"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2JH-4g-0Bj">
-                                        <rect key="frame" x="67" y="288" width="61" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Cancelar"/>
-                                        <connections>
-                                            <action selector="cancel:" destination="Q60-06-9rM" eventType="touchUpInside" id="GUT-hg-aAw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="sFc-yF-ALA" firstAttribute="leading" secondItem="Ddh-tb-Tec" secondAttribute="leading" constant="-2" id="Hku-gc-l5Q"/>
-                                    <constraint firstAttribute="trailing" secondItem="oJ8-KR-8kR" secondAttribute="trailing" constant="-12" id="Ihg-F5-xB5"/>
-                                    <constraint firstItem="sFc-yF-ALA" firstAttribute="top" secondItem="Ddh-tb-Tec" secondAttribute="top" constant="27" id="Wld-hc-0mE"/>
-                                    <constraint firstAttribute="bottom" secondItem="oJ8-KR-8kR" secondAttribute="bottom" constant="-14" id="f73-tb-CmX"/>
-                                    <constraint firstItem="oJ8-KR-8kR" firstAttribute="leading" secondItem="Ddh-tb-Tec" secondAttribute="leading" constant="-16" id="i8y-CX-7eS"/>
-                                    <constraint firstAttribute="trailing" secondItem="sFc-yF-ALA" secondAttribute="trailing" id="o2L-I6-5wu"/>
-                                    <constraint firstItem="oJ8-KR-8kR" firstAttribute="top" secondItem="Ddh-tb-Tec" secondAttribute="top" constant="-23" id="tpq-kD-9ek"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="VBI-Ac-L68" firstAttribute="bottom" secondItem="Ddh-tb-Tec" secondAttribute="bottom" constant="260" id="JW6-kp-6VV"/>
-                            <constraint firstItem="Ddh-tb-Tec" firstAttribute="centerX" secondItem="id2-sW-Ugs" secondAttribute="centerX" id="fKd-VM-ss7"/>
-                            <constraint firstItem="Ddh-tb-Tec" firstAttribute="top" secondItem="VBI-Ac-L68" secondAttribute="top" constant="148" id="iY6-dH-l2c"/>
-                            <constraint firstItem="Ddh-tb-Tec" firstAttribute="leading" secondItem="VBI-Ac-L68" secondAttribute="leading" constant="43" id="pdx-ha-G3q"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="VBI-Ac-L68"/>
-                    </view>
-                    <connections>
-                        <outlet property="leds" destination="oJ8-KR-8kR" id="zrB-EG-zFz"/>
-                        <segue destination="WqY-IU-135" kind="show" identifier="NotificationsVC" animates="NO" id="nHT-Xx-npl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mRu-KW-dLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4044" y="592.61083743842369"/>
-        </scene>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -397,7 +325,6 @@
                     <connections>
                         <outlet property="myTableView" destination="nYO-Tl-emc" id="oK2-Ie-Cqx"/>
                         <segue destination="B6y-WW-8dW" kind="show" identifier="SoundsVC" id="ul7-VF-WoT"/>
-                        <segue destination="Q60-06-9rM" kind="show" identifier="LedsVC" id="Wex-yu-yYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fl-kt-gRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -902,7 +829,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Ogq-Tx-9xs"/>
         <segue reference="azu-co-tfX"/>
-        <segue reference="ka5-fb-KfB"/>
+        <segue reference="tZU-ca-AIb"/>
         <segue reference="2T0-5Y-lpd"/>
     </inferredMetricsTieBreakers>
 </document>

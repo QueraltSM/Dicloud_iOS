@@ -8,8 +8,6 @@
 
 import UIKit
 
-var led_vc : LedVC!
-
 class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
  {
     @IBOutlet weak var myTableView: UITableView!
@@ -26,7 +24,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     func enableNotificationsCells(userInteractionEnabled: Bool) {
@@ -55,19 +53,10 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @objc func checkCellVibrationValueChange(mySwitch: UISwitch) {
         defaults.set(mySwitch.isOn, forKey: "vibration_switch_value")
     }
-    
-    func showPopOver(){
-        led_vc = self.storyboard?.instantiateViewController(withIdentifier: "LedVC") as? LedVC
-        led_vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        self.addChild(led_vc)
-        self.view.addSubview(led_vc.view)
-    }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == 1) {
             performSegue(withIdentifier: "SoundsVC", sender: nil)
-        } else if (indexPath.row == 3) {
-            showPopOver()
         }
     }
     
@@ -84,14 +73,9 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             setSoundCell(cell: cell, showNotifications: showNotifications)
             setCellBackgroundView(cell: cell)
             return cell
-        } else if indexPath.row == 2 {
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
             setVibrationCell(cell: cell, showNotifications: showNotifications)
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ledCell") as! NotificationsLedCell
-            setLedCell(cell: cell, showNotifications: showNotifications)
-            setCellBackgroundView(cell: cell)
             return cell
         }
     }
@@ -127,16 +111,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.state.addTarget(self, action: #selector(checkCellVibrationValueChange), for:UIControl.Event.valueChanged)
         cell.title.isEnabled = showNotifications 
         cell.state.isEnabled = showNotifications 
-    }
-    
-    func setLedCell(cell: NotificationsLedCell, showNotifications: Bool) {
-        if (UserDefaults.standard.object(forKey: "led_color_selected") == nil) {
-            defaults.set("Rojo", forKey: "led_color_selected")
-        }
-        cell.title.text = "Led"
-        cell.color.text = UserDefaults.standard.object(forKey: "led_color_selected") as? String
-        cell.title.isEnabled = showNotifications 
-        cell.color.isEnabled = showNotifications 
     }
     
     override func didReceiveMemoryWarning() {
