@@ -93,8 +93,8 @@ class ChatWorker {
     }
 
     func start(time: Int){
-        if newsTimer == nil && time > 0 {
-            newsTimer =  Timer.scheduledTimer(
+        if chatTimer == nil && time > 0 {
+            chatTimer =  Timer.scheduledTimer(
                 timeInterval: TimeInterval(time),
                 target      : self,
                 selector    : #selector(self.checkMessages),

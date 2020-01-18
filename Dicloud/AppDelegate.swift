@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         content.categoryIdentifier = categoryIdentifire
         content.userInfo = ["type" : type]
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let identifier = "Local Notification"
+        let identifier = message
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         notificationCenter.add(request) { (error) in
             if let error = error {
@@ -103,7 +103,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if (data == "news") {
               startVC(vc: "HomeVC")
             } else if (data == "chat") {
-                print("chat")
+                if let url = URL(string: "https://admin.dicloud.es/news/chat.asp") {
+                    let urlRequest = URLRequest(url: url)
+                    myWebView.load(urlRequest)
+                }
             }
         }
         completionHandler()
