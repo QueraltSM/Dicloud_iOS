@@ -68,10 +68,6 @@ class HomeVC: UIViewController {
         URL_INDEX = url
         url = url + "index.asp"
         openIndex(url: url)
-        if (URL_MENU != "") {
-            loadURLMenu()
-            URL_MENU = ""
-        }
     }
     
     func loadWebView(urlPath: String) {
@@ -139,6 +135,9 @@ class HomeVC: UIViewController {
 
     @IBAction func goHome(_ sender: Any) {
         goHomeView = true
+        if (popupWebView != nil) {
+            webViewDidClose(popupWebView!)
+        }
         openIndex(url: "https://admin.dicloud.es/index.asp")
     }
     
@@ -250,7 +249,7 @@ extension HomeVC: WKUIDelegate {
         popupWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         popupWebView!.navigationDelegate = self
         popupWebView!.uiDelegate = self
-        view.addSubview(popupWebView!)
+        myWebView.addSubview(popupWebView!)
         return popupWebView!
     }
     

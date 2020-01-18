@@ -21,17 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
             UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
         })
-    
+        notificationCenter.delegate = self
         if(userLoginStatus){
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVC")
-            self.window?.rootViewController = homeVC
-            self.window?.makeKeyAndVisible()
+            startVC(vc: "HomeVC")
         }
         return true
     }
@@ -55,15 +50,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    func userNotificationCenter(center: UNNotification, shouldPresentNotification notification: UNNotification) -> Bool {
+        return true
+    }
     
     //MARK: Local Notification Methods Starts here
     // Prepare New Notification with details and trigger
-    func scheduleNotification(message: String) {
+    func scheduleNotification(message: String, type: String) {
         let content = UNMutableNotificationContent()
         let categoryIdentifire = "notification"
         content.body = message
         content.badge = 1
         content.categoryIdentifier = categoryIdentifire
+        content.userInfo = ["type" : type]
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let identifier = "Local Notification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -99,9 +98,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if response.notification.request.identifier == "Local Notification" {
             print("Handling notifications with the Local Notification Identifier")
         }
+        let userInfo = response.notification.request.content.userInfo
+        if let data = userInfo["type"] as? String {
+            if (data == "news") {
+              startVC(vc: "HomeVC")
+            } else if (data == "chat") {
+                print("chat")
+            }
+        }
         completionHandler()
     }
 
+    func startVC(vc: String) {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: vc)
+        self.window?.rootViewController = homeVC
+        self.window?.makeKeyAndVisible()
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

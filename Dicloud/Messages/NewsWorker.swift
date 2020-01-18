@@ -37,7 +37,7 @@ class NewsWorker {
             total = "mensajes"
         }
         let message = "Tienes \(new.messages_count) \(total) de \(new.from)"
-        appDelegate?.scheduleNotification(message: message)
+        appDelegate?.scheduleNotification(message: message, type:"news")
         
     }
     

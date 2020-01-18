@@ -32,7 +32,7 @@ class ChatWorker {
     
     func showNotification(from: String) {
         let message = "Tienes un chat pendiente con \(from)"
-        appDelegate?.scheduleNotification(message: message)
+        appDelegate?.scheduleNotification(message: message, type: "chat")
     }
 
     func resetNotifiedChats() {
