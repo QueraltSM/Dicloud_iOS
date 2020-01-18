@@ -192,6 +192,7 @@ class ViewController: UIViewController {
             nickLbl.isHidden = true
             nickname.setUnderline(color: UIColor.gray)
         }
+        var errorMsg = ""
         switch errorCode {
         case 0: // success
             listin = json["listin"]! as! String
@@ -206,38 +207,27 @@ class ViewController: UIViewController {
             nickname.setUnderline(color: UIColor.red)
             break
         case 2:  // user or password error
-            showError(error: "Usuario o contraseña incorrectas")
+            errorMsg = "Usuario o contraseña incorrectas"
             break
         case 3:// inactive user error
-            showError(error: "Este usuario se encuentra desactivado")
+            errorMsg = "Este usuario se encuentra desactivado"
             break
         case 4: // json error
-            showError(error: "Ha habido algún problema en la comunicación")
+            errorMsg = "Ha habido algún problema en la comunicación"
             break
         case 5: // internet error
-            showError(error: "No hay conexión a internet")
+            errorMsg = "No hay conexión a internet"
             break
         default: // unknown error
-            showError(error: "Error desconocido")
+            errorMsg = "Error desconocido"
         }
-    }
-    
-    func showError(error: String) {
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        errorLabel.backgroundColor = UIColor.white
-        errorLabel.padding = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        errorLabel.text = error
-        errorLabel.sizeToFit()
-        errorLabel.layer.cornerRadius = errorLabel.frame.height/2
-        errorLabel.layer.masksToBounds = true
-        errorLabel.isHidden = false
-        errorLabel.textAlignment = .center
-        errorLabel.textColor = UIColor.white
-        errorLabel.backgroundColor = UIColor.gray
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.errorLabel.isHidden = true
+        if (errorMsg != "") {
+            let alert = UIAlertController(title: "Error al iniciar sesión", message: errorMsg, preferredStyle: .alert)
+            self.present(alert, animated: true)
+            let when = DispatchTime.now() + 4
+            DispatchQueue.main.asyncAfter(deadline: when){
+                alert.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }
