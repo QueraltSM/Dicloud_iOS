@@ -26,9 +26,7 @@ struct New : Codable {
     var messages_count:Int
 }
 
-
 class NewsWorker {
-    
     var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     func showNotification(new: New) {
@@ -37,6 +35,7 @@ class NewsWorker {
             total = "mensajes"
         }
         let message = "Tienes \(new.messages_count) \(total) de \(new.from)"
+        print("news = \(message)")
         appDelegate?.scheduleNotification(message: message, type:"news")
         
     }

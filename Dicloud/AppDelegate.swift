@@ -37,15 +37,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         ChatWorker().start(time:time)
     }
     
-    func confirmUserAuthorization() {
+    func confirmUserAuthorization() -> Bool {
+       notificationCenter.delegate = self
+        var allow = true
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         notificationCenter.requestAuthorization(options: options) {
             (didAllow, error) in
             if !didAllow {
                 print("User has declined notifications")
                 UserDefaults.standard.set(false, forKey: "notifications_switch_value")
+                allow = false
             }
         }
+        return allow
     }
     
     func userNotificationCenter(center: UNNotification, shouldPresentNotification notification: UNNotification) -> Bool {

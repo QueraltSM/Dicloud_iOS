@@ -25,13 +25,12 @@ struct Chat : Codable {
     var messages_count:Int
 }
 
-
 class ChatWorker {
-    
     var appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
+
     func showNotification(from: String) {
         let message = "Tienes un chat pendiente con \(from)"
+        print("chat = \(message)")
         appDelegate?.scheduleNotification(message: message, type: "chat")
     }
 

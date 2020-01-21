@@ -49,8 +49,16 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         } else {
             enableNotificationsCells(userInteractionEnabled:true)
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.confirmUserAuthorization()
-            appDelegate.applicationDidBecomeActive(UIApplication.shared)
+            if (!appDelegate.confirmUserAuthorization()) {
+                let alert = UIAlertController(title: "Error al permitir notificaciones", message: "Si en un futuro deseas recibir notificaciones debes ir a Ajustes del teléfono y permitir las notificaciones de Dicloud", preferredStyle: .alert)
+                self.present(alert, animated: true)
+                let when = DispatchTime.now() + 4
+                DispatchQueue.main.asyncAfter(deadline: when){
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            } else {
+                appDelegate.applicationDidBecomeActive(UIApplication.shared)
+            }
             
         }
         myTableView.reloadData()
@@ -67,9 +75,7 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let showNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as! Bool
-        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as! NotificationsCheckCell
             setNotificationsCell(cell: cell, showNotifications: showNotifications)
