@@ -190,7 +190,6 @@ class HomeVC: UIViewController {
     @IBAction func refreshWebView(_ sender: Any) {
         loadWebView(urlPath: (myWebView.url?.absoluteString)!)
     }
-
     
     @objc func respondToGesture(gesture: UISwipeGestureRecognizer) {
         switch gesture.direction {
