@@ -49,10 +49,11 @@ class SoundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         soundNotificationID = UInt32(1000+indexPath.row)
         AudioServicesPlayAlertSound(UInt32(1000+indexPath.row))
     }
-
-    @IBAction func saveNewNotificationSound(_ sender: Any) {
+    
+    @IBAction func saveNotificiations(_ sender: Any) {
         defaults.set(soundNotificationTitle, forKey: "sound_notification_title")
         defaults.set(soundNotificationID, forKey: "sound_notification_id")
         performSegue(withIdentifier: "NotificationsVC", sender: nil)
     }
+    
 }

@@ -59,7 +59,6 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             } else {
                 appDelegate.applicationDidBecomeActive(UIApplication.shared)
             }
-            
         }
         myTableView.reloadData()
     }

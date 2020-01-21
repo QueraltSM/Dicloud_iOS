@@ -374,9 +374,9 @@
                                             </connections>
                                         </barButtonItem>
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="okI-ra-4TM">
-                                            <rect key="frame" x="71" y="4" width="199" height="36"/>
+                                            <rect key="frame" x="88" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <state key="normal" title="Sonidos">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -384,17 +384,11 @@
                                                 <action selector="goHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="htf-kq-WaR"/>
                                             </connections>
                                         </button>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="uci-B2-Y5y">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dPs-FD-dXT">
-                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Hecho">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="saveNewNotificationSound:" destination="B6y-WW-8dW" eventType="touchUpInside" id="uOr-z9-Zg1"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8-checked-24.png" id="LKw-Iv-6q2">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="saveNotificiations:" destination="B6y-WW-8dW" id="tDZ-p8-EB7"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -833,13 +827,14 @@
     </scenes>
     <resources>
         <image name="Image" width="16" height="16"/>
+        <image name="icons8-checked-24.png" width="24" height="24"/>
         <image name="icons8-home-page-24.png" width="24" height="24"/>
         <image name="icons8-left-24.png" width="24" height="24"/>
         <image name="icons8-phone-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kqM-wB-Zzq"/>
-        <segue reference="nvK-tH-cvI"/>
+        <segue reference="azu-co-tfX"/>
         <segue reference="7fB-Uz-4Ry"/>
         <segue reference="6n4-lH-wgY"/>
     </inferredMetricsTieBreakers>

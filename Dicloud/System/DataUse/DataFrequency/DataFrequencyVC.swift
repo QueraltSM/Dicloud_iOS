@@ -33,7 +33,7 @@ class DataFrequencyVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
