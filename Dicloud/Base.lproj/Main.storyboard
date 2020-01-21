@@ -763,7 +763,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qtS-eD-uhU">
-                                <rect key="frame" x="0.0" y="244" width="258" height="568"/>
+                                <rect key="frame" x="0.0" y="244" width="258" height="8"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="258" id="Hjw-QE-ZlI"/>
@@ -803,9 +803,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Jyl-At-BlB" firstAttribute="leading" secondItem="tIn-Cn-uh3" secondAttribute="leading" id="9Zj-R9-R66"/>
+                            <constraint firstItem="Jyl-At-BlB" firstAttribute="bottom" secondItem="qtS-eD-uhU" secondAttribute="bottom" id="ERs-We-8Fv"/>
                             <constraint firstItem="Jyl-At-BlB" firstAttribute="leading" secondItem="qtS-eD-uhU" secondAttribute="leading" id="KFe-78-xry"/>
                             <constraint firstItem="Jyl-At-BlB" firstAttribute="top" secondItem="TO8-qh-SnY" secondAttribute="top" id="LAJ-My-f47"/>
                             <constraint firstAttribute="bottom" secondItem="qtS-eD-uhU" secondAttribute="bottom" id="a5F-sG-mNc"/>
+                            <constraint firstItem="tIn-Cn-uh3" firstAttribute="top" secondItem="Jyl-At-BlB" secondAttribute="top" constant="44" id="c1M-w3-pjI"/>
                             <constraint firstItem="Jyl-At-BlB" firstAttribute="leading" secondItem="TO8-qh-SnY" secondAttribute="leading" id="erO-AV-1Ti"/>
                             <constraint firstItem="qtS-eD-uhU" firstAttribute="top" secondItem="tIn-Cn-uh3" secondAttribute="top" constant="200" id="oc5-dp-uZW"/>
                             <constraint firstItem="tIn-Cn-uh3" firstAttribute="bottom" secondItem="Jyl-At-BlB" secondAttribute="bottom" constant="526" id="usl-mN-yVm"/>
@@ -837,6 +840,6 @@
         <segue reference="kqM-wB-Zzq"/>
         <segue reference="nvK-tH-cvI"/>
         <segue reference="ka5-fb-KfB"/>
-        <segue reference="2T0-5Y-lpd"/>
+        <segue reference="Tgm-BY-a8V"/>
     </inferredMetricsTieBreakers>
 </document>
