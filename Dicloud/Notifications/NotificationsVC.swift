@@ -44,8 +44,14 @@ class NotificationsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         defaults.set(value, forKey: "notifications_switch_value")
         if (!value) {
             enableNotificationsCells(userInteractionEnabled:false)
+            newsTimer?.invalidate()
+            chatTimer?.invalidate()
         } else {
             enableNotificationsCells(userInteractionEnabled:true)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.confirmUserAuthorization()
+            appDelegate.applicationDidBecomeActive(UIApplication.shared)
+            
         }
         myTableView.reloadData()
     }

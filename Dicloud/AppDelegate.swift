@@ -17,14 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let notificationCenter = UNUserNotificationCenter.current()
     static var menu_bool = true 
     var window: UIWindow?
-    let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
     let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        notificationCenter.delegate = self
         backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
             UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
         })
-        notificationCenter.delegate = self
         if(userLoginStatus){
             startVC(vc: "HomeVC")
         }
@@ -39,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func confirmUserAuthorization() {
-        notificationCenter.delegate = self
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         notificationCenter.requestAuthorization(options: options) {
             (didAllow, error) in
@@ -76,20 +74,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        if (UserDefaults.standard.object(forKey: "sound_notification_id") == nil) {
-            defaults.set(1003, forKey: "sound_notification_id")
+        
+        let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
+        
+        if (sendNotifications!) {
+            if (UserDefaults.standard.object(forKey: "sound_notification_id") == nil) {
+                defaults.set(1003, forKey: "sound_notification_id")
+            }
+            if (UserDefaults.standard.object(forKey: "vibration_switch_value") == nil) {
+                defaults.set(true, forKey: "vibration_switch_value")
+            }
+            let systemSoundID = UInt32(UserDefaults.standard.object(forKey: "sound_notification_id") as! Int)
+            let vibration = UserDefaults.standard.object(forKey: "vibration_switch_value") as! Bool
+            if (vibration) {
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            }
+            print("Show notification")
+            AudioServicesPlayAlertSound(UInt32(systemSoundID))
+            completionHandler([.alert, .sound])
         }
-        if (UserDefaults.standard.object(forKey: "vibration_switch_value") == nil) {
-            defaults.set(true, forKey: "vibration_switch_value")
-        }
-        let systemSoundID = UInt32(UserDefaults.standard.object(forKey: "sound_notification_id") as! Int)
-        let vibration = UserDefaults.standard.object(forKey: "vibration_switch_value") as! Bool
-        if (vibration) {
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-        }
-        print("Show notification")
-        AudioServicesPlayAlertSound(UInt32(systemSoundID))
-        completionHandler([.alert, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -128,6 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
         if (userLoginStatus && sendNotifications != nil && sendNotifications!) {
             var time = 0
             if (defaults.object(forKey: "data_frequency_selected") as? String == nil) {
@@ -167,6 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
         if (userLoginStatus && sendNotifications != nil && sendNotifications!) {
             newsTimer?.invalidate()
             chatTimer?.invalidate()
