@@ -22,6 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <color key="barTintColor" red="0.0" green="0.40784313725490196" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
@@ -116,7 +117,7 @@
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9RM-oc-xIj">
                                             <rect key="frame" x="88" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <state key="normal" title="Sistema">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -220,7 +221,7 @@
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z5u-Wg-Tf4">
                                             <rect key="frame" x="88" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <state key="normal" title="Notificaciones">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -462,7 +463,7 @@
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HR7-ta-1nG">
                                             <rect key="frame" x="88" y="4" width="199" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <state key="normal" title="Datos de uso">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -554,7 +555,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-zC-WDn">
-                                <rect key="frame" x="48" y="204" width="279" height="72"/>
+                                <rect key="frame" x="48" y="204" width="279" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -580,10 +581,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2hn-zC-WDn" firstAttribute="centerX" secondItem="8dl-qW-jjo" secondAttribute="centerX" id="ese-ht-NLd"/>
-                            <constraint firstItem="Rb1-YJ-eEN" firstAttribute="bottom" secondItem="2hn-zC-WDn" secondAttribute="bottom" constant="502" id="ky6-7S-FLD"/>
-                            <constraint firstItem="2hn-zC-WDn" firstAttribute="top" secondItem="Rb1-YJ-eEN" secondAttribute="top" constant="160" id="m0B-YX-nGS"/>
-                            <constraint firstItem="2hn-zC-WDn" firstAttribute="leading" secondItem="Rb1-YJ-eEN" secondAttribute="leading" constant="48" id="ysc-uI-oKd"/>
+                            <constraint firstItem="Rb1-YJ-eEN" firstAttribute="bottom" secondItem="2hn-zC-WDn" secondAttribute="bottom" constant="226" id="tkW-3C-nxr"/>
+                            <constraint firstItem="2hn-zC-WDn" firstAttribute="centerX" secondItem="8dl-qW-jjo" secondAttribute="centerX" id="txl-TP-sF1"/>
+                            <constraint firstItem="2hn-zC-WDn" firstAttribute="top" secondItem="Rb1-YJ-eEN" secondAttribute="top" constant="160" id="xiA-73-9ki"/>
+                            <constraint firstItem="2hn-zC-WDn" firstAttribute="leading" secondItem="Rb1-YJ-eEN" secondAttribute="leading" constant="48" id="ye8-mr-t05"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rb1-YJ-eEN"/>
                     </view>
@@ -750,7 +751,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JdX-7h-geM">
-                                        <rect key="frame" x="21" y="182" width="191" height="21"/>
+                                        <rect key="frame" x="21" y="195" width="191" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -839,7 +840,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="kqM-wB-Zzq"/>
         <segue reference="nvK-tH-cvI"/>
-        <segue reference="ka5-fb-KfB"/>
-        <segue reference="Tgm-BY-a8V"/>
+        <segue reference="7fB-Uz-4Ry"/>
+        <segue reference="6n4-lH-wgY"/>
     </inferredMetricsTieBreakers>
 </document>

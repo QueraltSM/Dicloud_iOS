@@ -46,14 +46,9 @@ class DataFrequencyVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.textLabel!.font = UIFont.boldSystemFont(ofSize: 20)
+        header.textLabel!.font = UIFont.boldSystemFont(ofSize: 18)
         header.textLabel?.textAlignment = NSTextAlignment.center
     }
-    
-    /*func tableView(_ tableView: UITableView, titleForHeaderInSection
-        section: Int) -> String? {
-        return "Frecuencia de sincronización"
-    }*/
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int{
         return data.count

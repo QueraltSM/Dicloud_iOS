@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if (data == "news") {
               startVC(vc: "HomeVC")
             } else if (data == "chat") {
-                if let url = URL(string: "https://admin.dicloud.es/news/chat.asp") {
+                if let url = URL(string: "https://" + domain + ".dicloud.es/news/chat.asp") {
                     let urlRequest = URLRequest(url: url)
                     myWebView.load(urlRequest)
                 }
