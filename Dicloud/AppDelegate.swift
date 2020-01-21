@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let notificationCenter = UNUserNotificationCenter.current()
     static var menu_bool = true 
     var window: UIWindow?
-    let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         notificationCenter.delegate = self
         backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
             UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
         })
+        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(userLoginStatus){
             startVC(vc: "HomeVC")
         }
@@ -135,6 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+         let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
         if (userLoginStatus && sendNotifications != nil && sendNotifications!) {
             var time = 0
@@ -175,6 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
         if (userLoginStatus && sendNotifications != nil && sendNotifications!) {
             newsTimer?.invalidate()

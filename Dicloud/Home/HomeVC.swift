@@ -20,6 +20,8 @@ var nickname: String = ""
 var username: String = ""
 var token: String = ""
 var listin: String = ""
+var app: String = ""
+var domain: String = ""
 
 struct Root: Codable {
     let usermenu: [UserMenu]
@@ -44,9 +46,14 @@ class HomeVC: UIViewController {
     @IBOutlet weak var listinButton: UIBarButtonItem!
     @IBOutlet weak var home: UIButton!
     @IBOutlet weak var webViewView: UIView!
+
+
+    @IBOutlet weak var navigation: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        app = UserDefaults.standard.object(forKey: "app") as! String
+        navigation.title = app
         view.snapshotView(afterScreenUpdates: true)
         if (UserDefaults.standard.object(forKey: "notifications_switch_value") == nil) {
             defaults.set(true, forKey: "notifications_switch_value")
@@ -59,12 +66,14 @@ class HomeVC: UIViewController {
         username = UserDefaults.standard.object(forKey: "username") as! String
         token = UserDefaults.standard.object(forKey: "token") as! String
         listin = UserDefaults.standard.object(forKey: "listin") as! String
+        domain = UserDefaults.standard.object(forKey: "domain") as! String
+        
         if (listin == "false") {
             listinButton.image = nil
             listinButton.isEnabled = false
         }
         loadSideMenu()
-        var url = "https://admin.dicloud.es/"
+        var url = "https://" + domain + ".dicloud.es/"
         URL_INDEX = url
         url = url + "index.asp"
         openIndex(url: url)
@@ -138,7 +147,7 @@ class HomeVC: UIViewController {
         if (popupWebView != nil) {
             webViewDidClose(popupWebView!)
         }
-        openIndex(url: "https://admin.dicloud.es/index.asp")
+        openIndex(url: "https://" + domain + ".dicloud.es/index.asp")
     }
     
     func loadURLMenu() {
@@ -174,7 +183,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func openListin(_ sender: Any) {
-        openIndex(url: URL_INDEX + "/listin.asp")
+        openIndex(url: URL_INDEX + "/companies/listin.asp")
     }
     
     
@@ -202,7 +211,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    func showMenu () {
+    func showMenu() {
         self.menu_vc.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.addChild(menu_vc)
         self.view.addSubview(menu_vc.view)
@@ -210,8 +219,8 @@ class HomeVC: UIViewController {
     }
     
     func closeMenu() {
-        self.menu_vc.view.removeFromSuperview()
         AppDelegate.menu_bool = true
+        self.menu_vc.closeMenu()
     }
 
     @IBAction func openMenu(_ sender: Any) {

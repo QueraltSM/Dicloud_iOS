@@ -157,9 +157,9 @@ class SideMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         ChatWorker().stop()
         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
         HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
-        self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
         UserDefaults.standard.synchronize()
+        self.performSegue(withIdentifier: "backToLoginSegue", sender: self)
     }
     
     func logout() {

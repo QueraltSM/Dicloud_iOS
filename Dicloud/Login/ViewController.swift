@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     var companyID = ""
     var fullname = ""
     var listin = ""
+    var develop = ""
+    var app = ""
+    var domain = ""
     
     @IBOutlet weak var nickname: textfieldDesign!
     @IBOutlet weak var username: textfieldDesign!
@@ -108,7 +111,6 @@ class ViewController: UIViewController {
 
     func textfieldsAreEmpty() -> Bool {
         var emptiness: Bool = false
-        
         if ((nickname.text?.isEmpty)!) {
             nickLbl.isHidden = false
             nickname.setUnderline(color: UIColor.red)
@@ -117,27 +119,22 @@ class ViewController: UIViewController {
             nickLbl.isHidden = true
             nickname.setUnderline(color: UIColor.gray)
         }
-        
         if ((username.text?.isEmpty)!) {
             usernameLbl.isHidden = false
             username.setUnderline(color: UIColor.red)
             emptiness = true
-            
         } else {
             usernameLbl.isHidden = true
             username.setUnderline(color: UIColor.gray)
         }
-        
         if ((password.text?.isEmpty)!) {
             passwordlbl.isHidden = false
             password.setUnderline(color: UIColor.red)
             emptiness = true
-            
         } else {
             passwordlbl.isHidden = true
             password.setUnderline(color: UIColor.gray)
         }
-        
         return emptiness
     }
     
@@ -166,8 +163,26 @@ class ViewController: UIViewController {
         }
     }
     
+    func showSegue(title: String, dom: String) {
+        self.app = title
+        self.domain = dom
+        self.performSegue(withIdentifier: "HomeSegue", sender: [self.token, self.listin, self.develop, self.fullname])
+    }
+    
+    func showDevelopAlert() {
+        let alert = UIAlertController(title: "Selecciona a qué aplicación quieres acceder:", message: "", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Desarrollo", style: .destructive, handler: { (action: UIAlertAction!) in
+            self.showSegue(title: "Desarrollo", dom: "desarrollo")
+        }))
+        alert.addAction(UIAlertAction(title: "Dicloud", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.showSegue(title: "Dicloud", dom: "admin")
+        }))
+        self.present(alert, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is HomeVC {
+            print("entro")
             UserDefaults.standard.set(nickname.text!, forKey: "nickname")
             UserDefaults.standard.set(username.text!, forKey: "username")
             UserDefaults.standard.set(fullname, forKey: "fullname")
@@ -176,6 +191,9 @@ class ViewController: UIViewController {
             UserDefaults.standard.set(companyID, forKey: "companyID")
             UserDefaults.standard.set(listin, forKey: "listin")
             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+            UserDefaults.standard.set(develop, forKey: "develop")
+            UserDefaults.standard.set(app, forKey: "app")
+            UserDefaults.standard.set(domain, forKey: "domain")
             UserDefaults.standard.synchronize()
         }
     }
@@ -190,10 +208,15 @@ class ViewController: UIViewController {
         switch errorCode {
         case 0: // success
             listin = json["listin"]! as! String
+            develop = json["desarrollo"]! as! String
             fullname = json["fullName"]! as! String
             companyID = String (describing: json["companyid"])
             token = json["token"]! as! String
-            self.performSegue(withIdentifier: "HomeSegue", sender: [token, listin, fullname])
+            if (develop == "true") {
+                showDevelopAlert()
+            } else {
+                self.showSegue(title: "Dicloud", dom: "admin")
+            }
             break
         case 1: // company error
             nickLbl.text = "Alias incorrecto"

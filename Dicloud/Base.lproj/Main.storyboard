@@ -25,7 +25,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Dicloud" id="Tck-gX-LPh">
+                                    <navigationItem id="Tck-gX-LPh">
                                         <barButtonItem key="leftBarButtonItem" image="Image" id="8Xu-i2-ikM">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
@@ -81,6 +81,7 @@
                     <navigationItem key="navigationItem" id="i5c-gW-0E6"/>
                     <connections>
                         <outlet property="listinButton" destination="qMk-Pc-nJJ" id="vz6-xE-P0b"/>
+                        <outlet property="navigation" destination="Tck-gX-LPh" id="QAy-K8-Lwj"/>
                         <outlet property="progressView" destination="BDl-5f-gDk" id="pNZ-gm-0vb"/>
                         <outlet property="webViewView" destination="chH-vw-hsR" id="RSx-ve-yKk"/>
                     </connections>
