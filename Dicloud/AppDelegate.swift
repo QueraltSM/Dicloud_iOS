@@ -23,10 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
             UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
         })
-        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
-        if(userLoginStatus){
-            startVC(vc: "HomeVC")
-        }
         return true
     }
 
@@ -135,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-         let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         let sendNotifications = UserDefaults.standard.object(forKey: "notifications_switch_value") as? Bool
         if (userLoginStatus && sendNotifications != nil && sendNotifications!) {
             var time = 0

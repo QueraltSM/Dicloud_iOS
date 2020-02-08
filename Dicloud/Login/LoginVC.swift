@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class LoginVC: UIViewController {
     
     let url = "https://app.dicloud.es/login.asp";
     let imageView = UIImageView()
@@ -26,123 +26,71 @@ class ViewController: UIViewController {
     var app = ""
     var domain = ""
     
+    @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var nickname: textfieldDesign!
     @IBOutlet weak var username: textfieldDesign!
     @IBOutlet weak var password: textfieldDesign!
     @IBOutlet weak var nickLbl: UILabel!
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var passwordlbl: UILabel!
-    
-    var textFieldBtn: UIButton {
-        let button = UIButton(type: .custom)
-        var urlPasswordIcon = URL(string: showPassword)
-        if (passwordHidden) {
-            urlPasswordIcon = URL(string: hidePassword)
-        }
-        let data = try? Data(contentsOf: urlPasswordIcon!)
-        imageView.image = UIImage(data: data!)
-        button.setImage(imageView.image, for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        button.frame = CGRect(x: CGFloat(password.frame.size.width - 40), y: CGFloat(5), width: CGFloat(20), height: CGFloat(20))
-        button.backgroundColor = UIColor.clear
-        button.addTarget(self, action: #selector(self.refreshContent), for: .touchUpInside)
-        return button
-    }
-    
-    @objc func refreshContent() {
-        if (password.isSecureTextEntry) {
-            password.isSecureTextEntry = false
-            passwordHidden = false
-        } else {
-            password.isSecureTextEntry = true
-            passwordHidden = true
-        }
-        password.rightView = textFieldBtn
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.snapshotView(afterScreenUpdates: true)
-        nickname.directionMaterial = placeholderDirection.placeholderUp
-        username.directionMaterial = placeholderDirection.placeholderUp
-        password.directionMaterial = placeholderDirection.placeholderUp
-        nickname.setUnderline(color: UIColor.gray)
-        username.setUnderline(color: UIColor.gray)
-        password.setUnderline(color: UIColor.gray)
-        password.rightView = textFieldBtn
-        password.rightViewMode = .always
+        nickname.setStyle(color: UIColor.white)
+        username.setStyle(color: UIColor.white)
+        password.setStyle(color: UIColor.white)
+        loginBtn.layer.cornerRadius = loginBtn.bounds.height / 2
+        let roundPath = UIBezierPath(roundedRect: loginBtn.bounds, cornerRadius: loginBtn.bounds.height / 2)
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = roundPath.cgPath
+        loginBtn.layer.mask = maskLayer
     }
     
-    @IBAction func nicknameEditEnd(_ sender: Any) {
-        if (nickLbl.isHidden) {
-            nickname.setUnderline(color: UIColor.gray)
-        }
-    }
-    
-    @IBAction func usernameEditEnd(_ sender: Any) {
-        if (usernameLbl.isHidden) {
-            username.setUnderline(color: UIColor.gray)
-        }
-    }
-    
-    @IBAction func passwordEditEnd(_ sender: Any) {
-        if (passwordlbl.isHidden) {
-            password.setUnderline(color: UIColor.gray)
-        }
-    }
     
     @IBAction func nicknameTouched(_ sender: Any) {
-        if (nickLbl.isHidden) {
-            nickname.setUnderline(color: UIColor.blue)
-        }
+        nickname.setStyle(color: UIColor.white)
     }
     
     @IBAction func usernameTouched(_ sender: Any) {
-        if (usernameLbl.isHidden) {
-            username.setUnderline(color: UIColor.blue)
-        }
+        username.setStyle(color: UIColor.white)
     }
     
     @IBAction func passwordTouched(_ sender: Any) {
-        if (passwordlbl.isHidden) {
-            password.setUnderline(color: UIColor.blue)
-        }
+        password.setStyle(color: UIColor.white)
     }
 
-    func textfieldsAreEmpty() -> Bool {
-        var emptiness: Bool = false
-        if ((nickname.text?.isEmpty)!) {
-            nickLbl.isHidden = false
-            nickname.setUnderline(color: UIColor.red)
-            emptiness = true
-        } else {
-            nickLbl.isHidden = true
-            nickname.setUnderline(color: UIColor.gray)
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        self.present(alert, animated: true)
+        let when = DispatchTime.now() + 4
+        DispatchQueue.main.asyncAfter(deadline: when){
+            alert.dismiss(animated: true, completion: nil)
         }
-        if ((username.text?.isEmpty)!) {
-            usernameLbl.isHidden = false
-            username.setUnderline(color: UIColor.red)
-            emptiness = true
-        } else {
-            usernameLbl.isHidden = true
-            username.setUnderline(color: UIColor.gray)
-        }
-        if ((password.text?.isEmpty)!) {
-            passwordlbl.isHidden = false
-            password.setUnderline(color: UIColor.red)
-            emptiness = true
-        } else {
-            passwordlbl.isHidden = true
-            password.setUnderline(color: UIColor.gray)
-        }
-        return emptiness
     }
     
-    
-    @IBAction func login(_ sender: Any) {
-        if (textfieldsAreEmpty()) {
-            return
+    func everyFldIsFull() -> Bool {
+        var result = true
+        if ((nickname.text?.isEmpty)!) {
+            result = false
+            nickname.setStyle(color: UIColor.red)
         }
+        if ((username.text?.isEmpty)!) {
+            result = false
+            username.setStyle(color: UIColor.red)
+        }
+        if ((password.text?.isEmpty)!) {
+            result = false
+            password.setStyle(color: UIColor.red)
+        }
+        if (!result) {
+            showAlert(title: "Error al iniciar sesión",message: "Todos los campos son obligatorios")
+        }
+        return result
+    }
+    
+    func makeLoginRequest() {
         var loginParameters : Dictionary = [String: String]()
         loginParameters["password"] = password.text!
         loginParameters["aliasDb"] = nickname.text!
@@ -160,6 +108,12 @@ class ViewController: UIViewController {
             case .failure(let error):
                 print(error)
             }
+        }
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        if (everyFldIsFull()) {
+            makeLoginRequest()
         }
     }
     
@@ -219,12 +173,16 @@ class ViewController: UIViewController {
             }
             break
         case 1: // company error
-            nickLbl.text = "Alias incorrecto"
-            nickLbl.isHidden = false // Nickname is wrong
-            nickname.setUnderline(color: UIColor.red)
+            errorMsg = "Alias incorrecto"
+            nickname.setStyle(color: UIColor.red)
+            nickname.text = ""
             break
         case 2:  // user or password error
             errorMsg = "Usuario o contraseña incorrectas"
+            username.setStyle(color: UIColor.red)
+            password.setStyle(color: UIColor.red)
+            username.text = ""
+            password.text = ""
             break
         case 3:// inactive user error
             errorMsg = "Este usuario se encuentra desactivado"
@@ -239,12 +197,20 @@ class ViewController: UIViewController {
             errorMsg = "Error desconocido"
         }
         if (errorMsg != "") {
-            let alert = UIAlertController(title: "Error al iniciar sesión", message: errorMsg, preferredStyle: .alert)
-            self.present(alert, animated: true)
-            let when = DispatchTime.now() + 4
-            DispatchQueue.main.asyncAfter(deadline: when){
-                alert.dismiss(animated: true, completion: nil)
-            }
+            showAlert(title: "Error al iniciar sesión", message: errorMsg)
         }
+    }
+}
+
+extension UITextField {
+    func setStyle(color: UIColor) {
+        self.layer.cornerRadius = self.bounds.height / 2
+        let roundPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.bounds.height / 2)
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = roundPath.cgPath
+        self.layer.mask = maskLayer
+        self.layer.borderWidth = 2.0
+        self.layer.borderColor = color.cgColor
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : color])
     }
 }
