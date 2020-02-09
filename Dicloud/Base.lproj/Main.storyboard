@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lGv-iu-rmI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tbs-Gy-NzP">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -600,19 +600,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tu app de gestión empresarial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-HP-exF">
-                                <rect key="frame" x="67.666666666666686" y="438" width="240" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="0.56862745098039214" green="0.66274509803921566" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dicloud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="idU-Ce-ghl">
-                                <rect key="frame" x="94" y="368" width="187" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1uB-9j-qZd">
+                                <rect key="frame" x="0.0" y="303" width="375" height="207"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tu app de gestión empresarial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-HP-exF">
+                                        <rect key="frame" x="77" y="128" width="220.33333333333337" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" red="0.56862745098039214" green="0.66274509803921566" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dicloud_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="idU-Ce-ghl">
+                                        <rect key="frame" x="94" y="72" width="187" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1uB-9j-qZd" firstAttribute="centerY" secondItem="wIk-Hm-tez" secondAttribute="centerY" id="Qg3-rn-ea2"/>
+                            <constraint firstItem="1uB-9j-qZd" firstAttribute="centerX" secondItem="wIk-Hm-tez" secondAttribute="centerX" id="ZqZ-T6-c4T"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4bi-sX-NM6"/>
                     </view>
                 </viewController>
@@ -628,9 +638,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alias" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O76-BN-ibB" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
-                                <rect key="frame" x="82" y="266" width="204" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alias" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O76-BN-ibB" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
+                                <rect key="frame" x="85.666666666666686" y="266" width="204" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="E4o-qQ-Bhq"/>
+                                    <constraint firstAttribute="height" constant="40" id="SjN-D2-F24"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -643,9 +656,12 @@
                                     <action selector="nicknameTouched:" destination="Tbs-Gy-NzP" eventType="touchDown" id="B3y-wn-hCj"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-e4-2DO" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
-                                <rect key="frame" x="82" y="356" width="204" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-e4-2DO" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
+                                <rect key="frame" x="85.666666666666686" y="356" width="204" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="FdW-ZW-vr9"/>
+                                    <constraint firstAttribute="height" constant="36" id="sRn-ok-eXT"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -658,9 +674,12 @@
                                     <action selector="usernameTouched:" destination="Tbs-Gy-NzP" eventType="touchDown" id="dQZ-MV-Wd9"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CoB-Wa-faq" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
-                                <rect key="frame" x="85" y="449" width="204" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CoB-Wa-faq" customClass="textfieldDesign" customModule="Dicloud" customModuleProvider="target">
+                                <rect key="frame" x="85.666666666666686" y="449" width="204" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="bzD-UF-YfK"/>
+                                    <constraint firstAttribute="height" constant="37" id="fW7-6E-19h"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -673,10 +692,13 @@
                                     <action selector="passwordTouched:" destination="Tbs-Gy-NzP" eventType="touchDown" id="isa-y6-zQD"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7I-H6-8QS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7I-H6-8QS">
                                 <rect key="frame" x="89" y="598" width="197" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3Fo-yH-yCz"/>
+                                    <constraint firstAttribute="width" constant="197" id="div-Vx-xX8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Iniciar sesión">
                                     <color key="titleColor" red="0.20392156859999999" green="0.63137254899999995" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -685,12 +707,30 @@
                                     <action selector="login:" destination="Tbs-Gy-NzP" eventType="touchUpInside" id="gaF-bQ-TWs"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="disoft_mouse.png" translatesAutoresizingMaskIntoConstraints="NO" id="0uc-sF-K8c">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disoft_mouse.png" translatesAutoresizingMaskIntoConstraints="NO" id="0uc-sF-K8c">
                                 <rect key="frame" x="147" y="122" width="81" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="B18-kX-LZE"/>
+                                    <constraint firstAttribute="width" constant="81" id="sSe-Vh-aV6"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.24313725490196078" green="0.59999999999999998" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="O76-BN-ibB" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="222" id="73O-cd-OBJ"/>
+                            <constraint firstItem="0uc-sF-K8c" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="78" id="ARt-1X-XDg"/>
+                            <constraint firstItem="sV4-e4-2DO" firstAttribute="centerX" secondItem="O76-BN-ibB" secondAttribute="centerX" id="NxR-Ay-yUl"/>
+                            <constraint firstItem="CoB-Wa-faq" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="405" id="Txw-KR-60i"/>
+                            <constraint firstItem="M7I-H6-8QS" firstAttribute="centerX" secondItem="O76-BN-ibB" secondAttribute="centerX" id="Vir-4X-jIA"/>
+                            <constraint firstItem="CoB-Wa-faq" firstAttribute="centerX" secondItem="Rlp-vd-ilm" secondAttribute="centerX" id="Yps-SQ-Dkb"/>
+                            <constraint firstItem="sV4-e4-2DO" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="312" id="Ztn-3t-qC9"/>
+                            <constraint firstItem="0uc-sF-K8c" firstAttribute="centerX" secondItem="Rlp-vd-ilm" secondAttribute="centerX" id="dK8-HY-Ezc"/>
+                            <constraint firstItem="sV4-e4-2DO" firstAttribute="centerX" secondItem="Rlp-vd-ilm" secondAttribute="centerX" id="fSZ-lI-qia"/>
+                            <constraint firstItem="M7I-H6-8QS" firstAttribute="top" secondItem="ICV-oJ-L8E" secondAttribute="top" constant="554" id="sOc-GJ-4GM"/>
+                            <constraint firstItem="O76-BN-ibB" firstAttribute="centerX" secondItem="Rlp-vd-ilm" secondAttribute="centerX" id="sfB-pW-YJD"/>
+                            <constraint firstItem="M7I-H6-8QS" firstAttribute="centerX" secondItem="Rlp-vd-ilm" secondAttribute="centerX" id="wIT-d9-zao"/>
+                            <constraint firstItem="CoB-Wa-faq" firstAttribute="centerX" secondItem="O76-BN-ibB" secondAttribute="centerX" id="xXK-tz-cZF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ICV-oJ-L8E"/>
                     </view>
                     <connections>
