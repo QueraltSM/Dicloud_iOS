@@ -21,11 +21,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         notificationCenter.delegate = self
         backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-            UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
+        UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
         })
+        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if(userLoginStatus){
+             startVC(vc: "HomeVC")
+        } else {
+             startVC(vc: "LoginVC")
+        }
         return true
     }
 
+    func startVC(vc: String) {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: vc)
+        self.window?.rootViewController = homeVC
+        self.window?.makeKeyAndVisible()
+    }
+    
     func checkMessages(time:Int){
         newsTimer = nil
         chatTimer = nil
@@ -34,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func confirmUserAuthorization() -> Bool {
-       notificationCenter.delegate = self
+        notificationCenter.delegate = self
         var allow = true
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         notificationCenter.requestAuthorization(options: options) {
@@ -113,14 +127,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         completionHandler()
-    }
-
-    func startVC(vc: String) {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(withIdentifier: vc)
-        self.window?.rootViewController = homeVC
-        self.window?.makeKeyAndVisible()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

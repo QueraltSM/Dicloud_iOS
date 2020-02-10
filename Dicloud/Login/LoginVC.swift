@@ -27,9 +27,9 @@ class LoginVC: UIViewController {
     var domain = ""
     
     @IBOutlet weak var loginBtn: UIButton!
-    @IBOutlet weak var nickname: textfieldDesign!
-    @IBOutlet weak var username: textfieldDesign!
-    @IBOutlet weak var password: textfieldDesign!
+    @IBOutlet weak var nickname: UITextField!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
     @IBOutlet weak var nickLbl: UILabel!
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var passwordlbl: UILabel!
@@ -136,7 +136,6 @@ class LoginVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is HomeVC {
-            print("entro")
             UserDefaults.standard.set(nickname.text!, forKey: "nickname")
             UserDefaults.standard.set(username.text!, forKey: "username")
             UserDefaults.standard.set(fullname, forKey: "fullname")
@@ -149,15 +148,14 @@ class LoginVC: UIViewController {
             UserDefaults.standard.set(app, forKey: "app")
             UserDefaults.standard.set(domain, forKey: "domain")
             UserDefaults.standard.synchronize()
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.confirmUserAuthorization()
+            appDelegate.applicationDidBecomeActive(UIApplication.shared)
         }
     }
     
     func decodeJSON(json: NSDictionary) {
         let errorCode = json["error_code"] as! Int
-        if (errorCode != 1) {
-            nickLbl.isHidden = true
-            nickname.setUnderline(color: UIColor.gray)
-        }
         var errorMsg = ""
         switch errorCode {
         case 0: // success
